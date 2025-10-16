@@ -1,0 +1,1 @@
+- [x] Remove max-width property from #root in src/App.css to allow the page to fit fully on the webpage

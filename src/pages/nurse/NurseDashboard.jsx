@@ -1,0 +1,162 @@
+import React from 'react';
+import { useAuth } from '../../hooks/useAuth';
+import { useAlerts } from '../../hooks/useAlerts';
+
+const NurseDashboard = () => {
+  const { user } = useAuth();
+  const { alerts } = useAlerts();
+
+  const nurseAlerts = alerts.filter(alert =>
+    alert.type === 'patient_vitals' || alert.type === 'medication_due' || alert.type === 'shift_change'
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Nurse Dashboard</h1>
+          <p className="mt-2 text-gray-600">Welcome back, Nurse {user?.name || 'Smith'}</p>
+        </div>
+
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-gray-900">Assigned Patients</h3>
+            <p className="text-3xl font-bold text-blue-600">12</p>
+            <p className="text-sm text-gray-500">Currently under care</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-gray-900">Tasks Pending</h3>
+            <p className="text-3xl font-bold text-orange-600">8</p>
+            <p className="text-sm text-gray-500">Require attention</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-gray-900">Medications Administered</h3>
+            <p className="text-3xl font-bold text-green-600">24</p>
+            <p className="text-sm text-gray-500">This shift</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-gray-900">Vital Signs Checked</h3>
+            <p className="text-3xl font-bold text-purple-600">18</p>
+            <p className="text-sm text-gray-500">This shift</p>
+          </div>
+        </div>
+
+        {/* Current Shift Tasks */}
+        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-xl font-semibold mb-4">Current Shift Tasks</h2>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between py-3 border-b">
+              <div>
+                <p className="font-medium">Room 204 - John Smith</p>
+                <p className="text-sm text-gray-500">Blood pressure check, 9:00 AM</p>
+              </div>
+              <div className="flex space-x-2">
+                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
+                  Urgent
+                </span>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                  Complete
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between py-3 border-b">
+              <div>
+                <p className="font-medium">Room 206 - Sarah Johnson</p>
+                <p className="text-sm text-gray-500">Medication administration, 9:15 AM</p>
+              </div>
+              <div className="flex space-x-2">
+                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
+                  Due Soon
+                </span>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                  Complete
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between py-3 border-b">
+              <div>
+                <p className="font-medium">Room 208 - Mike Davis</p>
+                <p className="text-sm text-gray-500">Wound dressing change, 9:30 AM</p>
+              </div>
+              <div className="flex space-x-2">
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                  Scheduled
+                </span>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                  Complete
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between py-3">
+              <div>
+                <p className="font-medium">Room 210 - Emma Wilson</p>
+                <p className="text-sm text-gray-500">Physical therapy assistance, 10:00 AM</p>
+              </div>
+              <div className="flex space-x-2">
+                <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">
+                  Pending
+                </span>
+                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                  Complete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Alerts and Notifications */}
+        {nurseAlerts.length > 0 && (
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-4">Critical Alerts</h2>
+            <div className="space-y-4">
+              {nurseAlerts.map(alert => (
+                <div key={alert.id} className="border-l-4 border-red-400 bg-red-50 p-4">
+                  <div className="flex">
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-red-800">{alert.title}</p>
+                      <p className="text-sm text-red-700 mt-1">{alert.message}</p>
+                      <p className="text-xs text-red-600 mt-2">{alert.timestamp}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Patient Care Tasks</h3>
+            <p className="text-gray-600 mb-4">View and manage patient care activities</p>
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+              View Tasks
+            </button>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Medication Administration</h3>
+            <p className="text-gray-600 mb-4">Track medication schedules and administration</p>
+            <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+              View Medications
+            </button>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Shift Schedule</h3>
+            <p className="text-gray-600 mb-4">Check your upcoming shifts</p>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
+              View Schedule
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NurseDashboard;
