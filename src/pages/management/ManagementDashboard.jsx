@@ -51,7 +51,7 @@ const ManagementDashboard = () => {
   const displayRecommendations = mockRecommendations;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Management Dashboard</h1>

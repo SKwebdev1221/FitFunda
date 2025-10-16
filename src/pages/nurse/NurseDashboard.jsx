@@ -11,11 +11,11 @@ const NurseDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Nurse Dashboard</h1>
-          <p className="mt-2 text-gray-600">Welcome back, Nurse {user?.name || 'Smith'}</p>
+          <p className="w mt-2 text-gray-600">Welcome back, Nurse {user?.name || 'Smith'}</p>
         </div>
 
         {/* Quick Stats */}
@@ -23,22 +23,22 @@ const NurseDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Assigned Patients</h3>
             <p className="text-3xl font-bold text-blue-600">12</p>
-            <p className="text-sm text-gray-500">Currently under care</p>
+            <p className="w text-sm text-gray-500">Currently under care</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Tasks Pending</h3>
             <p className="text-3xl font-bold text-orange-600">8</p>
-            <p className="text-sm text-gray-500">Require attention</p>
+            <p className="w text-sm text-gray-500">Require attention</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Medications Administered</h3>
             <p className="text-3xl font-bold text-green-600">24</p>
-            <p className="text-sm text-gray-500">This shift</p>
+            <p className="w text-sm text-gray-500">This shift</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Vital Signs Checked</h3>
             <p className="text-3xl font-bold text-purple-600">18</p>
-            <p className="text-sm text-gray-500">This shift</p>
+            <p className="w text-sm text-gray-500">This shift</p>
           </div>
         </div>
 
@@ -48,14 +48,14 @@ const NurseDashboard = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Room 204 - John Smith</p>
-                <p className="text-sm text-gray-500">Blood pressure check, 9:00 AM</p>
+                <p className="w font-medium">Room 204 - John Smith</p>
+                <p className="w text-sm text-gray-500">Blood pressure check, 9:00 AM</p>
               </div>
               <div className="flex space-x-2">
-                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-red-100 text-red-700 px-2 py-1 rounded-full text-s">
                   Urgent
                 </span>
-                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                <button className="wbg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
                   Complete
                 </button>
               </div>
@@ -63,11 +63,11 @@ const NurseDashboard = () => {
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Room 206 - Sarah Johnson</p>
-                <p className="text-sm text-gray-500">Medication administration, 9:15 AM</p>
+                <p className="w font-medium">Room 206 - Sarah Johnson</p>
+                <p className="w text-sm text-gray-500">Medication administration, 9:15 AM</p>
               </div>
               <div className="flex space-x-2">
-                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-s">
                   Due Soon
                 </span>
                 <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
@@ -78,11 +78,11 @@ const NurseDashboard = () => {
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Room 208 - Mike Davis</p>
-                <p className="text-sm text-gray-500">Wound dressing change, 9:30 AM</p>
+                <p className="w font-medium">Room 208 - Mike Davis</p>
+                <p className="w text-sm text-gray-500">Wound dressing change, 9:30 AM</p>
               </div>
               <div className="flex space-x-2">
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-s">
                   Scheduled
                 </span>
                 <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
@@ -93,11 +93,11 @@ const NurseDashboard = () => {
 
             <div className="flex items-center justify-between py-3">
               <div>
-                <p className="font-medium">Room 210 - Emma Wilson</p>
-                <p className="text-sm text-gray-500">Physical therapy assistance, 10:00 AM</p>
+                <p className="w font-medium">Room 210 - Emma Wilson</p>
+                <p className="w text-sm text-gray-500">Physical therapy assistance, 10:00 AM</p>
               </div>
               <div className="flex space-x-2">
-                <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-s">
                   Pending
                 </span>
                 <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">

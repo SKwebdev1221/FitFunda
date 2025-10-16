@@ -29,33 +29,33 @@ const HealthAdvisory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Health Advisories</h1>
-          <p className="mt-2 text-gray-600">Stay informed about health updates and recommendations</p>
+          <p className="w mt-2 text-gray-600">Stay informed about health updates and recommendations</p>
         </div>
 
         <div className="space-y-6">
           {advisories.map(advisory => (
-            <div key={advisory.id} className="bg-white rounded-lg shadow-md p-6">
+            <div key={advisory.id} className="w bg-white rounded-lg shadow-md p-6 w-full">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-2">
                     <h2 className="text-xl font-semibold text-gray-900">{advisory.title}</h2>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      advisory.priority === 'high' ? 'bg-red-100 text-red-800' :
-                      advisory.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-green-100 text-green-800'
+                      advisory.priority === 'high' ? 'w bg-red-100 text-red-800' :
+                      advisory.priority === 'medium' ? 'w bg-yellow-100 text-yellow-800' :
+                      'w bg-green-100 text-green-800'
                     }`}>
                       {advisory.priority}
                     </span>
                   </div>
-                  <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
+                  <div className="w flex items-center space-x-4 text-sm text-gray-500 mb-3">
                     <span>{advisory.category}</span>
                     <span>{new Date(advisory.date).toLocaleDateString()}</span>
                   </div>
-                  <p className="text-gray-700">{advisory.content}</p>
+                  <p className="w text-gray-700">{advisory.content}</p>
                 </div>
               </div>
 
@@ -74,7 +74,7 @@ const HealthAdvisory = () => {
         {/* Subscription Section */}
         <div className="mt-12 bg-blue-50 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-2">Stay Updated</h3>
-          <p className="text-gray-600 mb-4">
+          <p className="w text-gray-600 mb-4">
             Subscribe to receive health advisories and important updates directly in your patient portal.
           </p>
           <div className="flex space-x-3">

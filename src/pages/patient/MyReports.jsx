@@ -43,7 +43,7 @@ const MyReports = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Medical Reports</h1>
@@ -62,14 +62,14 @@ const MyReports = () => {
                   <div
                     key={report.id}
                     onClick={() => setSelectedReport(report)}
-                    className={`p-4 cursor-pointer hover:bg-gray-50 ${
+                    className={`w p-4 cursor-pointer hover:bg-gray-50 ${
                       selectedReport?.id === report.id ? 'bg-blue-50 border-r-4 border-blue-500' : ''
                     }`}
                   >
-                    <h3 className="font-medium text-gray-900">{report.title}</h3>
-                    <p className="text-sm text-gray-500">{report.doctor}</p>
+                    <h3 className="w font-medium text-gray-900">{report.title}</h3>
+                    <p className="w text-sm text-gray-500">{report.doctor}</p>
                     <p className="text-sm text-gray-400">{new Date(report.date).toLocaleDateString()}</p>
-                    <span className="inline-block mt-2 px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
+                    <span className="inline-block mt-2 px-2 py-1 text-lg rounded-full bg-green-100 text-green-800">
                       {report.status}
                     </span>
                   </div>
@@ -86,21 +86,21 @@ const MyReports = () => {
                   <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedReport.title}</h2>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="font-medium text-gray-500">Date:</span>
-                      <span className="ml-2">{new Date(selectedReport.date).toLocaleDateString()}</span>
+                      <span className="w font-medium text-gray-500">Date:</span>
+                      <span className="w ml-2">{new Date(selectedReport.date).toLocaleDateString()}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-gray-500">Doctor:</span>
-                      <span className="ml-2">{selectedReport.doctor}</span>
+                      <span className="w font-medium text-gray-500">Doctor:</span>
+                      <span className="w ml-2">{selectedReport.doctor}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-gray-500">Type:</span>
-                      <span className="ml-2">{selectedReport.type}</span>
+                      <span className="w font-medium text-gray-500">Type:</span>
+                      <span className="w ml-2">{selectedReport.type}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-gray-500">Status:</span>
+                      <span className="w font-medium text-gray-500">Status:</span>
                       <span className="ml-2">
-                        <span className="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
+                        <span className="w px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">
                           {selectedReport.status}
                         </span>
                       </span>
@@ -110,7 +110,7 @@ const MyReports = () => {
 
                 <div className="mb-6">
                   <h3 className="text-lg font-semibold mb-3">Summary</h3>
-                  <p className="text-gray-700">{selectedReport.summary}</p>
+                  <p className="w text-gray-700">{selectedReport.summary}</p>
                 </div>
 
                 {/* Mock Report Content */}
@@ -146,7 +146,7 @@ const MyReports = () => {
                     <div className="grid grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-medium mb-2">Vital Signs</h4>
-                        <div className="space-y-2 text-sm">
+                        <div className="w space-y-2 text-sm">
                           <div>Blood Pressure: 120/80 mmHg</div>
                           <div>Heart Rate: 72 bpm</div>
                           <div>Temperature: 98.6°F</div>
@@ -155,7 +155,7 @@ const MyReports = () => {
                       </div>
                       <div>
                         <h4 className="font-medium mb-2">Assessment</h4>
-                        <div className="space-y-2 text-sm">
+                        <div className="w space-y-2 text-sm">
                           <div>General: Well-appearing</div>
                           <div>HEENT: Normal</div>
                           <div>Cardiovascular: Regular rhythm</div>

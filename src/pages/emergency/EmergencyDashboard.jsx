@@ -11,11 +11,11 @@ const EmergencyDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Emergency Response Dashboard</h1>
-          <p className="mt-2 text-gray-600">Welcome back, {user?.name || 'Emergency Coordinator'}</p>
+          <p className="w mt-2 text-gray-600">Welcome back, {user?.name || 'Emergency Coordinator'}</p>
         </div>
 
         {/* Critical Alerts Banner */}
@@ -39,22 +39,22 @@ const EmergencyDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Active Emergencies</h3>
             <p className="text-3xl font-bold text-red-600">3</p>
-            <p className="text-sm text-gray-500">Currently responding</p>
+            <p className="w text-sm text-gray-500">Currently responding</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Available Ambulances</h3>
             <p className="text-3xl font-bold text-green-600">7</p>
-            <p className="text-sm text-gray-500">Out of 12 total</p>
+            <p className="w text-sm text-gray-500">Out of 12 total</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Response Time</h3>
             <p className="text-3xl font-bold text-blue-600">8.5m</p>
-            <p className="text-sm text-gray-500">Average today</p>
+            <p className="w text-sm text-gray-500">Average today</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Inter-Hospital Transfers</h3>
             <p className="text-3xl font-bold text-purple-600">12</p>
-            <p className="text-sm text-gray-500">This week</p>
+            <p className="w text-sm text-gray-500">This week</p>
           </div>
         </div>
 
@@ -118,23 +118,23 @@ const EmergencyDashboard = () => {
             <h2 className="text-xl font-semibold mb-4">Ambulance Fleet Status</h2>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Ambulance 1</span>
+                <span className="w text-sm font-medium">Ambulance 1</span>
                 <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Ambulance 2</span>
+                <span className="w text-sm font-medium">Ambulance 2</span>
                 <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">In Transit</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Ambulance 3</span>
+                <span className="w text-sm font-medium">Ambulance 3</span>
                 <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">At Scene</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Ambulance 4</span>
+                <span className="w text-sm font-medium">Ambulance 4</span>
                 <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">Ambulance 5</span>
+                <span className="w text-sm font-medium">Ambulance 5</span>
                 <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Transporting</span>
               </div>
             </div>
@@ -148,7 +148,10 @@ const EmergencyDashboard = () => {
                   <h3 className="font-medium text-gray-900">Trauma Response</h3>
                   <p className="text-sm text-gray-600">Level 1 activation</p>
                 </div>
-                <button className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm">
+                <button
+                  className="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-sm"
+                  onClick={() => alert('Trauma Response Protocol Activated!')}
+                >
                   Activate
                 </button>
               </div>
@@ -158,7 +161,10 @@ const EmergencyDashboard = () => {
                   <h3 className="font-medium text-gray-900">Mass Casualty</h3>
                   <p className="text-sm text-gray-600">Multi-agency response</p>
                 </div>
-                <button className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 text-sm">
+                <button
+                  className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 text-sm"
+                  onClick={() => alert('Mass Casualty Protocol is already Active!')}
+                >
                   Active
                 </button>
               </div>
@@ -168,7 +174,10 @@ const EmergencyDashboard = () => {
                   <h3 className="font-medium text-gray-900">Chemical Spill</h3>
                   <p className="text-sm text-gray-600">Hazmat team coordination</p>
                 </div>
-                <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-300 text-sm">
+                <button
+                  className="bg-gray-200 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-300 text-sm"
+                  onClick={() => alert('Chemical Spill Protocol Activated!')}
+                >
                   Standby
                 </button>
               </div>
@@ -201,7 +210,10 @@ const EmergencyDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Surge Alerts</h3>
             <p className="text-gray-600 mb-4">Monitor and respond to patient surge predictions</p>
-            <button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
+            <button
+              className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
+              onClick={() => alert('Viewing Surge Alerts...')}
+            >
               View Alerts
             </button>
           </div>
@@ -209,7 +221,10 @@ const EmergencyDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Ambulance Tracking</h3>
             <p className="text-gray-600 mb-4">Track ambulance locations and status in real-time</p>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            <button
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+              onClick={() => alert('Tracking Ambulance Fleet...')}
+            >
               Track Fleet
             </button>
           </div>
@@ -217,7 +232,10 @@ const EmergencyDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Inter-Hospital Coordination</h3>
             <p className="text-gray-600 mb-4">Coordinate patient transfers between facilities</p>
-            <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+            <button
+              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+              onClick={() => alert('Coordinating Inter-Hospital Transfers...')}
+            >
               Coordinate
             </button>
           </div>

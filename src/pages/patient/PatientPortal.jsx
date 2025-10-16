@@ -12,18 +12,18 @@ const PatientPortal = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Patient Portal</h1>
-          <p className="mt-2 text-gray-600">Welcome back, {user?.name || 'Patient'}</p>
+          <p className="mt-2 text-gray-600 w">Welcome back, {user?.name || 'Patient'}</p>
         </div>
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Book Appointment</h3>
-            <p className="text-gray-600 mb-4">Schedule a visit with your doctor</p>
+            <p className="text-gray-600 mb-4" style={{ fontSize: '25px', fontWeight: 500 }}>Schedule a visit with your doctor</p>
             <Link to="/patient/appointments">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 Book Now
@@ -33,7 +33,7 @@ const PatientPortal = () => {
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">View Reports</h3>
-            <p className="text-gray-600 mb-4">Access your medical records</p>
+            <p className="w text-gray-600 mb-4">Access your medical records</p>
             <Link to="/patient/reports">
               <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
                 View Reports
@@ -43,7 +43,7 @@ const PatientPortal = () => {
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Health Advisories</h3>
-            <p className="text-gray-600 mb-4">Latest health information</p>
+            <p className="w text-gray-600 mb-4">Latest health information</p>
             <Link to="/patient/advisory">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
                 View Advisories
@@ -58,30 +58,30 @@ const PatientPortal = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between py-2 border-b">
               <div>
-                <p className="font-medium">Appointment with Dr. Smith</p>
-                <p className="text-sm text-gray-500">Tomorrow at 10:00 AM</p>
+                <p className="w font-medium">Appointment with Dr. Smith</p>
+                <p className="w text-sm text-gray-500">Tomorrow at 10:00 AM</p>
               </div>
-              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
                 Upcoming
               </span>
             </div>
 
             <div className="flex items-center justify-between py-2 border-b">
               <div>
-                <p className="font-medium">Lab Results Available</p>
-                <p className="text-sm text-gray-500">Blood work from last week</p>
+                <p className="w font-medium">Lab Results Available</p>
+                <p className="w text-sm text-gray-500">Blood work from last week</p>
               </div>
-              <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
                 Completed
               </span>
             </div>
 
             <div className="flex items-center justify-between py-2">
               <div>
-                <p className="font-medium">Prescription Refill</p>
-                <p className="text-sm text-gray-500">Due in 3 days</p>
+                <p className="w font-medium">Prescription Refill</p>
+                <p className="w text-sm text-gray-500">Due in 3 days</p>
               </div>
-              <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">
                 Pending
               </span>
             </div>

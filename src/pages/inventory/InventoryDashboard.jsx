@@ -12,11 +12,11 @@ const InventoryDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Inventory Dashboard</h1>
-          <p className="mt-2 text-gray-600">Welcome back, {user?.name || 'Inventory Manager'}</p>
+          <p className="w mt-2 text-gray-600">Welcome back, {user?.name || 'Inventory Manager'}</p>
         </div>
 
         {/* Quick Stats */}
@@ -24,22 +24,22 @@ const InventoryDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Total Items</h3>
             <p className="text-3xl font-bold text-blue-600">2,847</p>
-            <p className="text-sm text-gray-500">In inventory</p>
+            <p className="w text-sm text-gray-500">In inventory</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Low Stock Items</h3>
             <p className="text-3xl font-bold text-orange-600">23</p>
-            <p className="text-sm text-gray-500">Need replenishment</p>
+            <p className="w text-sm text-gray-500">Need replenishment</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Pending Orders</h3>
             <p className="text-3xl font-bold text-purple-600">12</p>
-            <p className="text-sm text-gray-500">Awaiting delivery</p>
+            <p className="w text-sm text-gray-500">Awaiting delivery</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Expiring Soon</h3>
             <p className="text-3xl font-bold text-red-600">8</p>
-            <p className="text-sm text-gray-500">Within 30 days</p>
+            <p className="w text-sm text-gray-500">Within 30 days</p>
           </div>
         </div>
 
@@ -49,11 +49,11 @@ const InventoryDashboard = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Surgical Gloves - Size M</p>
-                <p className="text-sm text-gray-500">Stock level updated: 450 → 380</p>
+                <p className="w font-medium">Surgical Gloves - Size M</p>
+                <p className="w text-sm text-gray-500">Stock level updated: 450 → 380</p>
               </div>
               <div className="text-right">
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
                   Stock Update
                 </span>
                 <p className="text-xs text-gray-500 mt-1">2 hours ago</p>
@@ -62,11 +62,11 @@ const InventoryDashboard = () => {
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Insulin Injection Pens</p>
-                <p className="text-sm text-gray-500">New order placed: 200 units</p>
+                <p className="w font-medium">Insulin Injection Pens</p>
+                <p className="w text-sm text-gray-500">New order placed: 200 units</p>
               </div>
               <div className="text-right">
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
                   Order Placed
                 </span>
                 <p className="text-xs text-gray-500 mt-1">4 hours ago</p>
@@ -75,11 +75,11 @@ const InventoryDashboard = () => {
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Bandages - 4" x 4"</p>
-                <p className="text-sm text-gray-500">Low stock alert: 15 remaining</p>
+                <p className="w font-medium">Bandages - 4" x 4"</p>
+                <p className="w text-sm text-gray-500">Low stock alert: 15 remaining</p>
               </div>
               <div className="text-right">
-                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
                   Low Stock
                 </span>
                 <p className="text-xs text-gray-500 mt-1">6 hours ago</p>
@@ -88,11 +88,11 @@ const InventoryDashboard = () => {
 
             <div className="flex items-center justify-between py-3">
               <div>
-                <p className="font-medium">Antibiotics - Amoxicillin</p>
-                <p className="text-sm text-gray-500">Expiry warning: 30 days remaining</p>
+                <p className="w font-medium">Antibiotics - Amoxicillin</p>
+                <p className="w text-sm text-gray-500">Expiry warning: 30 days remaining</p>
               </div>
               <div className="text-right">
-                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
+                <span className="w bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
                   Expiry Warning
                 </span>
                 <p className="text-xs text-gray-500 mt-1">8 hours ago</p>
