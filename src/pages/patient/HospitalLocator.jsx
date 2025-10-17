@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Navbar from '../../components/common/Navbar';
 const HospitalLocator = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedHospital, setSelectedHospital] = useState(null);
@@ -58,6 +58,7 @@ const HospitalLocator = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <Navbar />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Find a Hospital</h1>

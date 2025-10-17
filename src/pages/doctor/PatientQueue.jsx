@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Navbar from '../../components/common/Navbar';
 const PatientQueue = () => {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
@@ -66,6 +66,7 @@ const PatientQueue = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Patient Queue</h1>

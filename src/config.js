@@ -20,6 +20,7 @@ export const CONFIG = {
     SIGNUP: '/signup',
     ABOUT: '/about',
     CONTACT: '/contact',
+    PUBLIC_ADVISORY: '/public-advisory',
     MANAGEMENT: '/management',
     DOCTOR: '/doctor',
     NURSE: '/nurse',

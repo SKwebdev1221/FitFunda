@@ -1,67 +1,94 @@
-import { useState, useEffect } from 'react'
-import '../../App.css'
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import { CONFIG } from '../../config';
+import '../../App.css';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll)
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
+  const location = useLocation();
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('userName')
-    window.location.href = '/'
-  }
+    logout();
+    window.location.href = '/';
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
+  const getDashboardPath = () => {
+    if (!user) return '/';
+    return `/${user.role}`;
+  };
 
   return (
-    <nav className={`w-full fixed top-0 left-0 z-50 backdrop-blur-md shadow-md transition-all duration-300 ${scrolled ? 'bg-white/70' : 'bg-transparent'}`}>
-      <div className="flex items-center m-5 w-full">
-        <div className={`${scrolled ? 'text-black' : 'text-white'} font-extrabold text-xl md:text-2xl mr-20 h-font`}>
-          <a href="/Home">Swasthya</a>
+    <nav className="bg-white shadow-lg rounded-lg mx-4 mb-8 relative z-20">
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+          <h2 className="text-2xl font-bold text-gray-900">FitFunda AI</h2>
         </div>
 
-        <ul className={`hidden md:flex space-x-8 font-light ${scrolled ? 'text-black' : 'text-white'}`}>
-          <li><a href="/dosha" className="hover:text-primary transition-colors duration-200">Dosha</a></li>
-          <li><a href="/SymptomRecommender" className="hover:text-primary transition-colors duration-200">Remedy-Finder</a></li>
-          <li><a href="/OnlineConsultation" className="hover:text-primary transition-colors duration-200">Online-Consultation</a></li>
-          <li><a href="/NearbyClinics" className="hover:text-primary transition-colors duration-200">Clinics</a></li>
-          <li><a href="/AyurvedaGarden" className="hover:text-primary transition-colors duration-200">Ayurveda-Garden</a></li>
-        </ul>
-
-        <li className="ml-auto list-none relative inline-block">
-          {localStorage.getItem('token') ? (
-            <>
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                className={`px-4 py-2 ${scrolled ? 'text-black' : 'text-white'} bg-transparent hover:bg-white/10 rounded transition duration-200 flex items-center space-x-1`}
+        {isAuthenticated ? (
+          <ul className="hidden md:flex space-x-8 font-light text-black">
+            <li>
+              <Link
+                to={getDashboardPath()}
+                className={`transition-colors duration-200 ${
+                  isActive(getDashboardPath()) ? 'text-blue-600 font-semibold' : 'hover:text-blue-600'
+                }`}
               >
-                <span>{localStorage.getItem('userName')}</span>
-                <svg className={`w-4 h-4 ${scrolled ? 'text-black' : 'text-white'}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"></path>
-                </svg>
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={CONFIG.ROUTES.PUBLIC_ADVISORY}
+                className={`transition-colors duration-200 ${
+                  isActive(CONFIG.ROUTES.PUBLIC_ADVISORY) ? 'text-blue-600 font-semibold' : 'hover:text-blue-600'
+                }`}
+              >
+                Public Advisory
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <ul className="hidden md:flex space-x-8 font-light text-black">
+            <li><a href="/dosha" className="hover:text-primary transition-colors duration-200">Dosha</a></li>
+            <li><a href="/SymptomRecommender" className="hover:text-primary transition-colors duration-200">Remedy-Finder</a></li>
+            <li><a href="/OnlineConsultation" className="hover:text-primary transition-colors duration-200">Online-Consultation</a></li>
+            <li><a href="/NearbyClinics" className="hover:text-primary transition-colors duration-200">Clinics</a></li>
+            <li><a href="/AyurvedaGarden" className="hover:text-primary transition-colors duration-200">Ayurveda-Garden</a></li>
+          </ul>
+        )}
+
+        <div className="flex space-x-4">
+          {isAuthenticated ? (
+            <>
+              <span className="px-4 py-2 text-gray-900 bg-transparent rounded transition duration-200 flex items-center space-x-1">
+                <span>{user.name}</span>
+              </span>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300"
+              >
+                Logout
               </button>
-              {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
-                  <a href="/UserDashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                  <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</button>
-                </div>
-              )}
             </>
           ) : (
             <>
-              <a href="/login" className={`px-4 py-2 ${scrolled ? 'text-black border-black' : 'text-white'} rounded shadow transition duration-200 mr-3`}>Login</a>
-              <a href="/register" className={`px-4 py-2 ${scrolled ? 'text-black border-black' : 'text-white'} rounded shadow transition duration-200`}>Register</a>
+              <a href="/login" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300">Login</a>
+              <a href="/register" className="bg-white hover:bg-gray-50 text-blue-600 px-6 py-2 rounded-lg font-semibold border-2 border-blue-600 transition-all duration-300">Register</a>
             </>
           )}
-        </li>
+        </div>
 
         <div className="md:hidden">
-          <button className="text-primary focus:outline-none" aria-label="Open menu">
+          <button className="text-blue-600 focus:outline-none" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -69,5 +96,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

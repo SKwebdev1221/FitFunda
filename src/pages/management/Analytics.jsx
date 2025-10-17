@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import SurgeGraph from '../../components/dashboard/SurgeGraph';
 import BedAvailabilityChart from '../../components/dashboard/BedAvailabilityChart';
 import StaffReadinessCard from '../../components/dashboard/StaffReadinessCard';
-
+import Navbar from '../../components/common/Navbar';
 const Analytics = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d');
   const [selectedMetric, setSelectedMetric] = useState('all');
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Hospital Analytics</h1>

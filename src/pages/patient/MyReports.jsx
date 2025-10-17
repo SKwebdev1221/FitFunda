@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Navbar from '../../components/common/Navbar';
 const MyReports = () => {
   const [selectedReport, setSelectedReport] = useState(null);
 
@@ -44,6 +44,7 @@ const MyReports = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Medical Reports</h1>

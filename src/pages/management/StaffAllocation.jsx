@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import StaffTable from '../../components/tables/StaffTable';
-
+import Navbar from '../../components/common/Navbar';
 const StaffAllocation = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
@@ -18,6 +18,7 @@ const StaffAllocation = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Staff Allocation</h1>

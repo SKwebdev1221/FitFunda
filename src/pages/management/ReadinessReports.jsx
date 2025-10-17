@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AlertTable from '../../components/tables/AlertTable';
-
+import Navbar from '../../components/common/Navbar';
 const ReadinessReports = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('24h');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -17,6 +17,7 @@ const ReadinessReports = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Readiness Reports</h1>

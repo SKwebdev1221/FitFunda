@@ -1,6 +1,7 @@
 import React from 'react';
 import { useData } from '../../hooks/useData';
 import { useAlerts } from '../../hooks/useAlerts';
+import Navbar from '../../components/common/Navbar';
 import SurgeGraph from '../../components/dashboard/SurgeGraph';
 import AlertCard from '../../components/dashboard/AlertCard';
 import RecommendationCard from '../../components/dashboard/RecommendationCard';
@@ -52,6 +53,7 @@ const ManagementDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Management Dashboard</h1>

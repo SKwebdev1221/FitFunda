@@ -7,6 +7,7 @@ import About from '../pages/About';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Contact from '../pages/Contact';
+import PublicAdvisory from '../pages/PublicAdvisory';
 import NotFound from '../pages/errors/NotFound';
 import Unauthorized from '../pages/errors/Unauthorized';
 
@@ -30,6 +31,16 @@ const AppRoutes = () => {
       <Route path={CONFIG.ROUTES.LOGIN} element={<Login />} />
       <Route path={CONFIG.ROUTES.SIGNUP} element={<Signup />} />
       <Route path={CONFIG.ROUTES.CONTACT} element={<Contact />} />
+
+      {/* Protected Common Routes */}
+      <Route
+        path={CONFIG.ROUTES.PUBLIC_ADVISORY}
+        element={
+          <ProtectedRoute allowedRoles={Object.values(CONFIG.ROLES)}>
+            <PublicAdvisory />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Protected Role-based Routes */}
       <Route

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import RoomOccupancyTable from '../../components/tables/RoomOccupancyTable';
-
+import Navbar from '../../components/common/Navbar';
 const BedManagement = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
 
@@ -18,6 +18,7 @@ const BedManagement = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900">Bed Management</h1>

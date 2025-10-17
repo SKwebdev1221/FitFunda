@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../../components/common/Navbar';
 
 const StockStatus = () => {
   const [filter, setFilter] = useState('all');
@@ -113,8 +114,9 @@ const StockStatus = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-blue-50">
+      <Navbar />
+      <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Stock Status</h1>
           <p className="mt-2 text-gray-600">Monitor inventory levels and stock alerts</p>

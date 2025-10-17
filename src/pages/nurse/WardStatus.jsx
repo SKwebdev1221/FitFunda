@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Navbar from '../../components/common/Navbar';
 const WardStatus = () => {
   const [selectedWard, setSelectedWard] = useState('medical');
 
@@ -58,6 +58,7 @@ const WardStatus = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Ward Status</h1>

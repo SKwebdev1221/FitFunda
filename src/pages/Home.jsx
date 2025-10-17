@@ -12,6 +12,32 @@ const Home = () => {
         <div className="absolute top-40 left-40 w-80 h-80 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
+      {/* Navbar */}
+      <nav className="bg-white shadow-lg rounded-lg mx-4 mb-8 relative z-20">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <h2 className="text-2xl font-bold text-gray-900">FitFunda AI</h2>
+          </div>
+          <div className="flex space-x-4">
+            <Link
+              to={CONFIG.ROUTES.LOGIN}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+            >
+              Login
+            </Link>
+            <Link
+              to={CONFIG.ROUTES.SIGNUP}
+              className="bg-white hover:bg-gray-50 text-blue-600 px-6 py-2 rounded-lg font-semibold border-2 border-blue-600 transition-all duration-300"
+            >
+              Register
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="text-center mb-20">
           <h1 className="text-6xl font-bold text-gray-900 mb-6 animate-fade-in-up">
