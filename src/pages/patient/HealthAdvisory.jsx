@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const HealthAdvisory = () => {
   const advisories = [
     {
@@ -33,7 +34,7 @@ const HealthAdvisory = () => {
       <Navbar />
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Health Advisories</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Health Blogs</h1>
           <p className="w mt-2 text-gray-600">Stay informed about health updates and recommendations</p>
         </div>
 

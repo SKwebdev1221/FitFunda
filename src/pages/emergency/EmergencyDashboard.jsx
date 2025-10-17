@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useAlerts } from '../../hooks/useAlerts';
 import Navbar from '../../components/common/Navbar';
-
+import Footer from '../../components/common/Footer';
 const EmergencyDashboard = () => {
   const { user } = useAuth();
   const { alerts } = useAlerts();
@@ -32,6 +32,35 @@ const EmergencyDashboard = () => {
               <p className="text-sm text-red-700">
                 <strong>Active Emergency:</strong> Mass casualty incident at City Hospital. Multiple ambulances dispatched.
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* AI Recommendation Box */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-500 p-6 mb-8 rounded-lg">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-blue-800 mb-2">AI Recommendation: Burn Patient Surge Preparedness</h3>
+              <p className="text-blue-700 mb-3">
+                Based on Diwali firework incident patterns, keep 3 ambulances ready for burn patients.
+                Expected surge in burn cases by 45% due to firework-related accidents in the next 24 hours.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 font-medium">
+                  Prepare Ambulances
+                </button>
+                <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 font-medium">
+                  View Surge Details
+                </button>
+                <button className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 font-medium">
+                  Dismiss
+                </button>
+              </div>
             </div>
           </div>
         </div>

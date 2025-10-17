@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const Communication = () => {
   const [activeTab, setActiveTab] = useState('messages');
   const [newMessage, setNewMessage] = useState('');
@@ -288,6 +289,7 @@ const Communication = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

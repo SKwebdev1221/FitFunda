@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useAlerts } from '../../hooks/useAlerts';
 import Navbar from '../../components/common/Navbar';
-
+import SurgeGraph from '../../components/dashboard/SurgeGraph';
+import Footer from '../../components/common/Footer';
 const NurseDashboard = () => {
   const { user } = useAuth();
   const { alerts } = useAlerts();
@@ -109,6 +110,11 @@ const NurseDashboard = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Patient Surge Predictions */}
+        <div className="mb-8">
+          <SurgeGraph timeRange="24h" />
         </div>
 
         {/* Alerts and Notifications */}

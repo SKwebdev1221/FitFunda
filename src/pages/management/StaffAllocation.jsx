@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StaffTable from '../../components/tables/StaffTable';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const StaffAllocation = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 

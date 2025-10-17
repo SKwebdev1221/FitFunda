@@ -4,6 +4,7 @@ import { CONFIG } from '../config';
 import { useAuth } from '../hooks/useAuth';
 import Navbar from '../components/common/Navbar';
 
+
 const Home = () => {
   const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Home = () => {
 
       <Navbar />
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 py-20 pb-32 relative z-10">
         <div className="text-center mb-16">
           <h1 className="h-font text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             AI-Driven Hopital Readiness Platform
@@ -107,13 +108,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="mt-16 py-6 border-t border-gray-200">
-          <div className="text-center text-gray-600">
-            <p className="text-sm mb-1">© 2024 AI-Driven Hospital Readiness Platform. All rights reserved.</p>
-            <p className="text-xs">Empowering healthcare with intelligent solutions for better patient outcomes.</p>
-          </div>
-        </footer>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AppointmentForm from '../../components/forms/AppointmentForm';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const AppointmentBooking = () => {
   const [selectedDoctor, setSelectedDoctor] = useState('');
   const [selectedDate, setSelectedDate] = useState('');

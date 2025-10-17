@@ -3,6 +3,7 @@ import SurgeGraph from '../../components/dashboard/SurgeGraph';
 import BedAvailabilityChart from '../../components/dashboard/BedAvailabilityChart';
 import StaffReadinessCard from '../../components/dashboard/StaffReadinessCard';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const Analytics = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d');
   const [selectedMetric, setSelectedMetric] = useState('all');

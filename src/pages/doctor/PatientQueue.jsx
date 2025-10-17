@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const PatientQueue = () => {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
@@ -218,6 +219,7 @@ const PatientQueue = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

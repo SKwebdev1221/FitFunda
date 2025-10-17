@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RoomOccupancyTable from '../../components/tables/RoomOccupancyTable';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const BedManagement = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
 

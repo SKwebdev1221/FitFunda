@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const HospitalLocator = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedHospital, setSelectedHospital] = useState(null);

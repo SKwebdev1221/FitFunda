@@ -7,7 +7,7 @@ import AlertCard from '../../components/dashboard/AlertCard';
 import RecommendationCard from '../../components/dashboard/RecommendationCard';
 import BedAvailabilityChart from '../../components/dashboard/BedAvailabilityChart';
 import StaffReadinessCard from '../../components/dashboard/StaffReadinessCard';
-
+import Footer from '../../components/common/Footer';
 const ManagementDashboard = () => {
   const { predictionData, bedData, staffData } = useData();
   const { alerts } = useAlerts();

@@ -58,7 +58,7 @@ const Sidebar = () => {
       case CONFIG.ROLES.PATIENT:
         return [
           { path: `${basePath}`, label: 'Portal', icon: '🏠' },
-          { path: `${basePath}/advisory`, label: 'Health Advisory', icon: '🏥' },
+          { path: `${basePath}/advisory`, label: 'Health Blogs', icon: '🏥' },
           { path: `${basePath}/appointments`, label: 'Appointment Booking', icon: '📅' },
           { path: `${basePath}/reports`, label: 'My Reports', icon: '📄' },
           { path: `${basePath}/locator`, label: 'Hospital Locator', icon: '📍' }

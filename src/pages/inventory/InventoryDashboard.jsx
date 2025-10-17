@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useAlerts } from '../../hooks/useAlerts';
 import Navbar from '../../components/common/Navbar';
-
+import Footer from '../../components/common/Footer';
 const InventoryDashboard = () => {
   const { user } = useAuth();
   const { alerts } = useAlerts();

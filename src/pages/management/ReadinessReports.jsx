@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AlertTable from '../../components/tables/AlertTable';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 const ReadinessReports = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('24h');
   const [selectedCategory, setSelectedCategory] = useState('all');
