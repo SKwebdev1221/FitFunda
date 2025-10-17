@@ -182,17 +182,17 @@
 /* Responsive improvements */
 @media (max-width: 768px) {
   .dashboard-card {
-    margin: 0.5rem;
+    margin: 0.25rem;
   }
 
   .stats-card-blue, .stats-card-green, .stats-card-orange,
   .stats-card-red, .stats-card-purple {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .btn-primary, .btn-secondary {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -246,4 +246,8 @@
   .input-with-icon input,
   .input-with-icon select,
   .input-with-icon textarea { padding-left: 3rem; }
+}
+.w {
+  font-size: 15px;
+  font-weight: 500;
 }

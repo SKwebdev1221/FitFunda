@@ -79,9 +79,9 @@ const PatientQueue = () => {
             <div className="bg-white rounded-lg shadow-md">
               <div className="p-6 border-b">
                 <h2 className="text-xl font-semibold">Current Queue</h2>
-                <p className="text-sm text-gray-500 mt-1">4 patients waiting</p>
+                <p className="w text-sm text-gray-500 mt-1">4 patients waiting</p>
               </div>
-              <div className="divide-y divide-gray-200">
+              <div className="w divide-y divide-gray-200">
                 {patients.map(patient => (
                   <div
                     key={patient.id}
@@ -93,24 +93,24 @@ const PatientQueue = () => {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3">
                         <h3 className="font-medium text-gray-900">{patient.name}</h3>
-                        <span className="text-sm text-gray-500">Age: {patient.age}</span>
+                        <span className="w text-sm text-gray-500">Age: {patient.age}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(patient.priority)}`}>
+                        <span className={`w px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(patient.priority)}`}>
                           {patient.priority}
                         </span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(patient.status)}`}>
+                        <span className={`w px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(patient.status)}`}>
                           {patient.status}
                         </span>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm font-medium text-gray-700">{patient.condition}</p>
-                        <p className="text-sm text-gray-500">{patient.symptoms}</p>
+                        <p className="w text-sm font-medium text-gray-700">{patient.condition}</p>
+                        <p className="w text-sm text-gray-500">{patient.symptoms}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-medium text-gray-900">Wait: {patient.waitTime}</p>
+                        <p className="w text-sm font-medium text-gray-900">Wait: {patient.waitTime}</p>
                       </div>
                     </div>
                   </div>

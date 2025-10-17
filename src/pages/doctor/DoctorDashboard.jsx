@@ -51,40 +51,40 @@ const DoctorDashboard = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">John Smith - Follow-up</p>
-                <p className="text-sm text-gray-500">9:00 AM - 9:30 AM</p>
+                <p className="w font-medium">John Smith - Follow-up</p>
+                <p className="w text-sm text-gray-500">9:00 AM - 9:30 AM</p>
               </div>
-              <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
                 Completed
               </span>
             </div>
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Sarah Johnson - Initial Consultation</p>
-                <p className="text-sm text-gray-500">9:30 AM - 10:00 AM</p>
+                <p className="w font-medium">Sarah Johnson - Initial Consultation</p>
+                <p className="w text-sm text-gray-500">9:30 AM - 10:00 AM</p>
               </div>
-              <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
                 In Progress
               </span>
             </div>
 
             <div className="flex items-center justify-between py-3 border-b">
               <div>
-                <p className="font-medium">Mike Davis - Emergency</p>
-                <p className="text-sm text-gray-500">10:00 AM - 10:30 AM</p>
+                <p className="w font-medium">Mike Davis - Emergency</p>
+                <p className="w text-sm text-gray-500">10:00 AM - 10:30 AM</p>
               </div>
-              <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
                 Urgent
               </span>
             </div>
 
             <div className="flex items-center justify-between py-3">
               <div>
-                <p className="font-medium">Emma Wilson - Check-up</p>
-                <p className="text-sm text-gray-500">10:30 AM - 11:00 AM</p>
+                <p className="w font-medium">Emma Wilson - Check-up</p>
+                <p className="w text-sm text-gray-500">10:30 AM - 11:00 AM</p>
               </div>
-              <span className="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">
+              <span className="w bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs">
                 Scheduled
               </span>
             </div>
@@ -116,7 +116,7 @@ const DoctorDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Patient Queue</h3>
             <p className="text-gray-600 mb-4">View and manage patient waiting list</p>
-            <Link to="/doctor/patients">
+            <Link to="/doctor/patients#top">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 View Queue
               </button>
@@ -134,7 +134,7 @@ const DoctorDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Shift Schedule</h3>
             <p className="text-gray-600 mb-4">Check your upcoming shifts</p>
-            <Link to="/doctor/schedule">
+            <Link to="/doctor/schedule#top">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
                 View Schedule
               </button>

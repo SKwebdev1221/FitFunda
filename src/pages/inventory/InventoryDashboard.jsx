@@ -58,7 +58,7 @@ const InventoryDashboard = () => {
                 <span className="w bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">
                   Stock Update
                 </span>
-                <p className="text-xs text-gray-500 mt-1">2 hours ago</p>
+                <p className="text-xs text-gray-500 !mt-2">2 hours ago</p>
               </div>
             </div>
 
@@ -71,7 +71,7 @@ const InventoryDashboard = () => {
                 <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
                   Order Placed
                 </span>
-                <p className="text-xs text-gray-500 mt-1">4 hours ago</p>
+                <p className="text-xs text-gray-500 !mt-2">4 hours ago</p>
               </div>
             </div>
 
@@ -84,7 +84,7 @@ const InventoryDashboard = () => {
                 <span className="w bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">
                   Low Stock
                 </span>
-                <p className="text-xs text-gray-500 mt-1">6 hours ago</p>
+                <p className="text-xs text-gray-500 !mt-2">6 hours ago</p>
               </div>
             </div>
 
@@ -97,7 +97,7 @@ const InventoryDashboard = () => {
                 <span className="w bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">
                   Expiry Warning
                 </span>
-                <p className="text-xs text-gray-500 mt-1">8 hours ago</p>
+                <p className="text-xs text-gray-500 !mt-2">8 hours ago</p>
               </div>
             </div>
           </div>
@@ -298,7 +298,7 @@ const InventoryDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Stock Status</h3>
             <p className="text-gray-600 mb-4">View current inventory levels and alerts</p>
-            <Link to="/inventory/stock">
+            <Link to="/inventory/stock#top">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 View Inventory
               </button>
@@ -308,7 +308,7 @@ const InventoryDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Supply Orders</h3>
             <p className="text-gray-600 mb-4">Manage pending and completed orders</p>
-            <Link to="/inventory/orders">
+            <Link to="/inventory/orders#top">
               <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
                 View Orders
               </button>
@@ -318,7 +318,7 @@ const InventoryDashboard = () => {
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Reports & Analytics</h3>
             <p className="text-gray-600 mb-4">Generate inventory reports and insights</p>
-            <Link to="/inventory/reports">
+            <Link to="/inventory/reports#top">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
                 View Reports
               </button>
