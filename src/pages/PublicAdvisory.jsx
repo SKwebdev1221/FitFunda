@@ -100,7 +100,7 @@ const PublicAdvisory = () => {
           <h1 className="text-5xl font-bold text-gray-900 mb-4">
             Public Health Advisory
           </h1>
-          <p className="text-xl font-medium text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl font-medium text-gray-700 mx-auto leading-relaxed text-center">
             Stay informed about environmental and seasonal health risks. Take proactive steps to protect yourself and your loved ones.
           </p>
         </div>
