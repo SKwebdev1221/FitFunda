@@ -308,3 +308,24 @@ input[type="submit"][disabled] {
   opacity: 0.6 !important;
   pointer-events: none !important;
 }
+
+/* Ensure navbar link hover color works across build setups (override other rules) */
+nav ul li a,
+nav ul li a:link,
+nav ul li a:visited {
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+/* Specific hover override for nav links */
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #00aef0 !important;
+}
+
+/* If link is active (explicit class), keep it bold and dark */
+nav ul li a.active,
+nav ul li a[aria-current="page"] {
+  color: #000 !important;
+  font-weight: 600;
+}

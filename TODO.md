@@ -6,7 +6,6 @@ Replace all blue button colors with #00aef0 for background and #0095c8 for hover
 ## Steps
 - [x] Edit src/pages/Signup.jsx: Update button gradient and focus ring
 - [x] Edit src/pages/PublicAdvisory.jsx: Update button backgrounds and hovers
-- [x] Edit src/pages/patient/PatientPortal.jsx: Update button backgrounds and hovers
 - [ ] Edit src/pages/patient/MyReports.jsx: Update button backgrounds and hovers
 - [ ] Edit src/pages/patient/HospitalLocator.jsx: Update button backgrounds and hovers
 - [ ] Edit src/pages/patient/HealthAdvisory.jsx: Update button backgrounds and hovers

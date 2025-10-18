@@ -34,12 +34,12 @@ export default function Navbar() {
           </svg>
           <h2 className="h-font text-2xl font-bold !text-[#00aef0] !mt-1">FitFunda AI</h2>
           {isAuthenticated && (
-            <ul className="hidden md:flex space-x-8 font-light text-black ml-8">
+            <ul className="hidden md:flex space-x-8 font-light ml-8">
               <li>
                 <Link
                   to={getDashboardPath()}
-                  className={`text-lg transition-colors duration-200 ${
-                    isActive(getDashboardPath()) ? 'text-black font-semibold' : 'text-black hover:text-blue-600'
+                  className={`text-lg !hover:text-[#00aef0] transition-colors duration-200 ${
+                    isActive(getDashboardPath()) ? 'text-black font-semibold' : 'text-gray-700 hover:text-[#00aef0]'
                   }`}
                 >
                   Dashboard
@@ -48,8 +48,8 @@ export default function Navbar() {
               <li>
                 <Link
                   to={CONFIG.ROUTES.PUBLIC_ADVISORY}
-                  className={`text-lg transition-colors duration-200 ${
-                    isActive(CONFIG.ROUTES.PUBLIC_ADVISORY) ? 'text-black font-semibold' : 'text-black hover:text-blue-600'
+                  className={`text-lg transition-colors !hover:text-[#00ef0] duration-200 ${
+                    isActive(CONFIG.ROUTES.PUBLIC_ADVISORY) ? 'text-black font-semibold' : 'text-gray-700 hover:text-[#00aef0]'
                   }`}
                 >
                   Public Advisory
@@ -84,8 +84,8 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <a href="/login" className="bg-white border border-2 border-blue-600 hover:bg-blue-700 !text-blue-600 px-6 py-2 rounded font-semibold transition-all duration-300">Login</a>
-            <a href="/register" className="bg-white hover:bg-gray-50 !text-blue-600 px-6 py-2 me-4 rounded font-semibold border-2 border-blue-600 transition-all duration-300">Register</a>
+              <a href="/login" className="bg-white border border-2 border-[#00aef0] hover:bg-[#0095c8] !text-[#00aef0] px-6 py-2 rounded font-semibold transition-all duration-300">Login</a>
+            <a href="/signup" className="bg-white hover:bg-[#0095c8] !text-[#00aef0] px-6 py-2 me-4 rounded font-semibold border-2 border-[#00aef0] transition-all duration-300">Register</a>
             </>
           )}
         </div>
