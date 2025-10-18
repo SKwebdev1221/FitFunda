@@ -118,7 +118,7 @@ const PublicAdvisory = () => {
                 <motion.div
                   key={risk.id}
                   className={`relative bg-white rounded-3xl shadow-lg p-6 text-center flex-shrink-0 transition-all duration-500 ${
-                    isActive ? "scale-105 ring-2 ring-blue-500" : "scale-90 opacity-70"
+                    isActive ? "scale-105 ring-2 ring-[#00aef0]" : "scale-90 opacity-70"
                   }`}
                   style={{ width: "260px", minHeight: "320px" }}
                 >
@@ -152,7 +152,7 @@ const PublicAdvisory = () => {
                   onClick={() => setCurrentRiskIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === currentRiskIndex
-                      ? "bg-blue-600 scale-125"
+                      ? "bg-[#00aef0] scale-125"
                       : "bg-gray-300"
                   }`}
                 />
@@ -218,7 +218,7 @@ const PublicAdvisory = () => {
                   <p className="text-sm text-gray-500 mb-4">
                     Contact: {specialists[currentDoctorIndex].contact}
                   </p>
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-transform font-semibold shadow-md hover:scale-105">
+                  <button className="bg-[#00aef0] text-white px-6 py-2 rounded-lg hover:bg-[#0095c8] transition-transform font-semibold shadow-md hover:scale-105">
                     Schedule Consultation
                   </button>
                 </div>
@@ -253,7 +253,7 @@ const PublicAdvisory = () => {
                 onClick={() => setCurrentDoctorIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
                   index === currentDoctorIndex
-                    ? "bg-blue-600 scale-125"
+                    ? "bg-[#00aef0] scale-125"
                     : "bg-gray-300"
                 }`}
               />

@@ -18,8 +18,8 @@ const NurseDashboard = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-xl font-bold text-gray-900">Nurse Dashboard</h1>
-          <p className="w mt-2 text-xs text-gray-600">Welcome back, Nurse {user?.name || 'Smith'}</p>
+          <h1 className="c h-font text-xl font-bold text-gray-900">Nurse Dashboard</h1>
+          <p className="w c mt-2 text-xs text-gray-600">Welcome back, Nurse {user?.name || 'Smith'}</p>
         </div>
 
         {/* Quick Stats */}
@@ -140,7 +140,7 @@ const NurseDashboard = () => {
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">Patient Care Tasks</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-2">🩺 Patient Care Tasks</h3>
             <p className="text-sm text-gray-600 mb-4">View and manage patient care activities</p>
             <Link to="/nurse/tasks#top">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm">
@@ -150,7 +150,7 @@ const NurseDashboard = () => {
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">Medication Administration</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-2">💊 Medication Administration</h3>
             <p className="text-sm text-gray-600 mb-4">Track medication schedules and administration</p>
             <Link to="/nurse/medications">
               <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 text-sm">
@@ -160,7 +160,7 @@ const NurseDashboard = () => {
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">Shift Schedule</h3>
+            <h3 className="text-base font-semibold text-gray-900 mb-2">📅 Shift Schedule</h3>
             <p className="text-sm text-gray-600 mb-4">Check your upcoming shifts</p>
             <Link to="/nurse/schedule#top">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 text-sm">

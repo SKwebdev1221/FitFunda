@@ -6,6 +6,7 @@ import BedManagement from '../pages/management/BedManagement';
 import StaffAllocation from '../pages/management/StaffAllocation';
 import ReadinessReports from '../pages/management/ReadinessReports';
 import Analytics from '../pages/management/Analytics';
+import CreateOrder from '../pages/management/CreateOrder';
 
 const ManagementRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const ManagementRoutes = () => {
       <Route path="/staff" element={<StaffAllocation />} />
       <Route path="/reports" element={<ReadinessReports />} />
       <Route path="/analytics" element={<Analytics />} />
+      <Route path="/create-order" element={<CreateOrder />} />
     </Routes>
   );
 };

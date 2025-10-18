@@ -71,10 +71,10 @@ const SurgeAlert = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Surge Alert Management</h1>
-          <p className="mt-2 text-gray-600">Monitor and respond to patient surge predictions</p>
+          <h1 className="h-font text-center text-3xl font-bold text-gray-900">Surge Alert Management</h1>
+          <p className="w mt-2 text-center text-gray-600">Monitor and respond to patient surge predictions</p>
         </div>
 
         {/* Current Alert Level */}
@@ -119,12 +119,12 @@ const SurgeAlert = () => {
                           </span>
                         </div>
                         <p className="text-sm text-gray-600 mb-2">
-                          <span className="font-medium">Location:</span> {alert.location}
+                          <span className="w font-medium">Location:</span> {alert.location}
                         </p>
                         <p className="text-sm text-gray-600 mb-2">
-                          <span className="font-medium">Predicted Increase:</span> {alert.predictedIncrease} within {alert.timeframe}
+                          <span className="w font-medium">Predicted Increase:</span> {alert.predictedIncrease} within {alert.timeframe}
                         </p>
-                        <p className="text-xs text-gray-500">
+                        <p className="w text-xs text-gray-500">
                           Alert Time: {alert.timestamp}
                         </p>
                       </div>
@@ -153,9 +153,51 @@ const SurgeAlert = () => {
         {/* Surge Prediction Graph */}
         <div className="mt-8 bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold mb-4">Patient Load Prediction</h2>
-          <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-            <p className="text-gray-500">Interactive chart would be displayed here</p>
-            {/* In a real implementation, this would be a chart component */}
+          <div className="h-64 bg-gray-50 rounded-lg p-4">
+            <div className="w-full h-full flex items-end justify-between relative">
+              {/* Y-axis labels */}
+              <div className="flex flex-col justify-between text-xs text-gray-500 pr-2 h-full">
+                <span>100</span>
+                <span>80</span>
+                <span>60</span>
+                <span>40</span>
+                <span>20</span>
+                <span>0</span>
+              </div>
+              {/* Chart Bars */}
+              <div className="flex-1 flex items-end justify-between h-full space-x-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '45%' }}></div>
+                  <span className="text-xs text-gray-600">00:00</span>
+                  <span className="text-xs text-gray-400">45</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '32%' }}></div>
+                  <span className="text-xs text-gray-600">04:00</span>
+                  <span className="text-xs text-gray-400">32</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-orange-500 rounded-t mb-2" style={{ height: '78%' }}></div>
+                  <span className="text-xs text-gray-600">08:00</span>
+                  <span className="text-xs text-gray-400">78</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-red-500 rounded-t mb-2" style={{ height: '95%' }}></div>
+                  <span className="text-xs text-gray-600">12:00</span>
+                  <span className="text-xs text-gray-400">95</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-orange-500 rounded-t mb-2" style={{ height: '87%' }}></div>
+                  <span className="text-xs text-gray-600">16:00</span>
+                  <span className="text-xs text-gray-400">87</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '65%' }}></div>
+                  <span className="text-xs text-gray-600">20:00</span>
+                  <span className="text-xs text-gray-400">65</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center">

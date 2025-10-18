@@ -1,19 +1,32 @@
-# Footer Update Task
+# TODO: Change Button Colors from Blue to #00aef0
 
-## Summary
-Update the footer text to © 2025 AI-Driven Hospital Readiness Platform and import the Footer component to all pages except Login and Signup.
+## Overview
+Replace all blue button colors with #00aef0 for background and #0095c8 for hover states across the project.
 
-## Tasks
-- [x] Update Footer.jsx to change © 2024 to © 2025
-- [x] Add Footer import and component to About.jsx
-- [x] Add Footer import and component to Contact.jsx
-- [x] Replace inline footer in Home.jsx with Footer component
-- [x] Add Footer import and component to PublicAdvisory.jsx
-- [x] Add Footer import and component to errors/NotFound.jsx
-- [x] Add Footer import and component to errors/Unauthorized.jsx
-- [ ] Add Footer import and component to all doctor pages (Communication.jsx, DiseaseForecast.jsx, DoctorDashboard.jsx, PatientQueue.jsx, ShiftSchedule.jsx)
-- [ ] Add Footer import and component to all emergency pages (AmbulanceTracking.jsx, EmergencyDashboard.jsx, InterHospitalCoordination.jsx, ResponseProtocol.jsx, SurgeAlert.jsx)
-- [ ] Add Footer import and component to all inventory pages (ForecastedNeeds.jsx, InventoryDashboard.jsx, Reports.jsx, StockStatus.jsx, SupplierContacts.jsx, SupplyOrders.jsx)
-- [ ] Add Footer import and component to all management pages (Analytics.jsx, BedManagement.jsx, ManagementDashboard.jsx, ReadinessReports.jsx, StaffAllocation.jsx)
-- [ ] Add Footer import and component to all nurse pages (MedicationManagement.jsx, NurseDashboard.jsx, PatientCareTasks.jsx, ShiftSchedule.jsx, WardStatus.jsx)
-- [ ] Add Footer import and component to all patient pages (AppointmentBooking.jsx, HealthAdvisory.jsx, HospitalLocator.jsx, MyReports.jsx, PatientPortal.jsx)
+## Steps
+- [x] Edit src/pages/Signup.jsx: Update button gradient and focus ring
+- [x] Edit src/pages/PublicAdvisory.jsx: Update button backgrounds and hovers
+- [x] Edit src/pages/patient/PatientPortal.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/patient/MyReports.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/patient/HospitalLocator.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/patient/HealthAdvisory.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/patient/AppointmentBooking.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/nurse/WardStatus.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/nurse/ShiftSchedule.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/nurse/PatientCareTasks.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/nurse/NurseDashboard.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/nurse/MedicationManagement.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/management/StaffAllocation.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/management/ReadinessReports.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/management/BedManagement.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/management/Analytics.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/SupplyOrders.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/SupplierContacts.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/StockStatus.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/Reports.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/InventoryDashboard.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/inventory/ForecastedNeeds.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/errors/Unauthorized.jsx: Update button backgrounds and hovers
+- [ ] Edit src/pages/errors/NotFound.jsx: Update button backgrounds and hovers
+- [ ] Run development server and verify changes
+- [ ] Test button interactions (hover, focus)

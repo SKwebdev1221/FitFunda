@@ -17,41 +17,8 @@ const PatientPortal = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-xl font-bold text-gray-900">Patient Portal</h1>
-          <p className="mt-2 text-xs text-gray-600 w">Welcome back, {user?.name || 'Patient'}</p>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Book Appointment</h3>
-            <p className="text-sm text-gray-600 mb-4">Schedule a visit with your doctor</p>
-            <Link to="/patient/appointments">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm">
-                Book Now
-              </button>
-            </Link>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">View Reports</h3>
-            <p className="w text-sm text-gray-600 mb-4">Access your medical records</p>
-            <Link to="/patient/reports#top">
-              <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 text-sm">
-                View Reports
-              </button>
-            </Link>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-base font-semibold text-gray-900 mb-2">Health Blogs</h3>
-            <p className="w text-sm text-gray-600 mb-4">Latest health information</p>
-            <Link to="/patient/advisory#top">
-              <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 text-sm">
-                View Blogs
-              </button>
-            </Link>
-          </div>
+          <h1 className="c h-font text-xl font-bold text-gray-900">Patient Portal</h1>
+          <p className="w c mt-2 text-xs text-gray-600 w">Welcome back, {user?.name || 'Patient'}</p>
         </div>
 
         {/* Recent Activity */}
@@ -90,6 +57,7 @@ const PatientPortal = () => {
           </div>
         </div>
 
+
         {/* AI Recommendations */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md p-6 mb-8">
           <div className="flex items-start">
@@ -105,11 +73,11 @@ const PatientPortal = () => {
               </p>
               <div className="flex space-x-3">
                 <Link to="/patient/appointments">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 text-sm transition-colors">
+                  <button className="!bg-[#00aef0] text-white px-4 py-2 rounded-md !hover:bg-[#0095c8] text-sm transition-colors">
                     Book Pulmonologist
                   </button>
                 </Link>
-                <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 text-sm transition-colors">
+                <button className="!bg-[#00aef0] text-gray-700 px-4 py-2 rounded-md !hover:bg-[#0095c8] text-sm transition-colors">
                   Learn More
                 </button>
               </div>
@@ -135,6 +103,45 @@ const PatientPortal = () => {
             </div>
           </div>
         )}
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📘 Book Appointment</h3>
+            <p className="w c text-sm text-gray-600 mb-4">Schedule a visit with your doctor</p>
+            <div className="flex justify-center">
+            <Link to="/patient/appointments">
+              <button className="!bg-[#00aef0] text-white px-4 py-2 rounded-md !hover:bg-[#0095c8] text-sm">
+                Book Now
+              </button>
+            </Link>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="c text-base font-semibold text-gray-900 mb-2">📊 View Reports</h3>
+            <p className="w c text-sm text-gray-600 mb-4">Access your medical records</p>
+            <div className='flex justify-center'>
+            <Link to="/patient/reports#top">
+              <button className="!bg-[#00aef0] text-white px-4 py-2 rounded-md !hover:bg-[#0095c8] text-sm">
+                View Reports
+              </button>
+            </Link>
+            </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <h3 className="c text-base font-semibold text-gray-900 mb-2">📰 Health Blogs</h3>
+            <p className="w c text-sm text-gray-600 mb-4">Latest health information</p>
+            <div className="flex justify-center">
+            <Link to="/patient/advisory#top">
+              <button className="!bg-[#00aef0] text-white px-4 py-2 rounded-md !hover:bg-[#0095c8] text-sm">
+                View Blogs
+              </button>
+            </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

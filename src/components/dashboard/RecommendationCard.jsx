@@ -26,7 +26,11 @@ const RecommendationCard = ({ recommendation }) => {
               </span>
             </div>
             {recommendation.action && (
-              <Link to={recommendation.action === 'Implement Plan' ? '/management/staff#top' : '/inventory/orders#top'}>
+              <Link to={
+                recommendation.action === 'Implement Plan' ? '/management/staff#top' :
+                recommendation.action === 'Create Order' ? '/management/create-order' :
+                '/inventory/orders#top'
+              }>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
                   {recommendation.action}
                 </button>

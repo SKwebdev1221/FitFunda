@@ -38,13 +38,13 @@ const Home = () => {
           <div className="flex justify-center space-x-6 animate-fade-in-up animation-delay-600">
             <Link
               to={CONFIG.ROUTES.LOGIN}
-              className="!text-blue-600 px-10 py-4 rounded border-2 border-blue bg-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="!text-[#00aef0] px-10 py-4 rounded border-2 border-blue bg-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               Login
             </Link>
             <Link
               to={CONFIG.ROUTES.SIGNUP}
-              className="bg-white hover:bg-gray-50 !text-blue-600 px-10 py-4 rounded font-semibold border-2 border-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="bg-white hover:bg-gray-50 !text-[#00aef0] px-10 py-4 rounded font-semibold border-2 border-[#00aef0] transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               Sign Up
             </Link>
@@ -100,7 +100,7 @@ const Home = () => {
               { role: 'Emergency', icon: '🚑' },
               { role: 'Patients', icon: '🏠' }
             ].map(({ role, icon }) => (
-              <div key={role} className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group">
+              <div key={role} className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group mb-3">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">{icon}</div>
                 <h3 className="text-base font-semibold text-gray-900">{role}</h3>
               </div>

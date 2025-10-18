@@ -18,8 +18,8 @@ const DoctorDashboard = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Doctor Dashboard</h1>
-          <p className="mt-2 text-gray-600">Welcome back, Dr. {user?.name || 'Doctor'}</p>
+          <h1 className="c h-font text-3xl font-bold text-gray-900">Doctor Dashboard</h1>
+          <p className="w c mt-2 text-gray-600">Welcome back, Dr. {user?.name || 'Doctor'}</p>
         </div>
 
         {/* Quick Stats */}
@@ -113,38 +113,106 @@ const DoctorDashboard = () => {
         )}
 
         {/* Patient Surge Predictions */}
-        <div className="mb-8">
-          <SurgeGraph timeRange="24h" />
+        <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 mb-8">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Patient Surge Predictions</h3>
+          <div className="h-64 bg-gray-50 rounded-lg p-4">
+            <div className="w-full h-full flex items-end justify-between relative">
+              {/* Y-axis labels */}
+              <div className="flex flex-col justify-between text-xs text-gray-500 pr-2 h-full">
+                <span>100</span>
+                <span>80</span>
+                <span>60</span>
+                <span>40</span>
+                <span>20</span>
+                <span>0</span>
+              </div>
+              {/* Chart Bars */}
+              <div className="flex-1 flex items-end justify-between h-full space-x-4">
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '95px' }}></div>
+                  <span className="text-xs text-gray-600">00:00</span>
+                  <span className="text-xs text-gray-400">45</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '102px' }}></div>
+                  <span className="text-xs text-gray-600">04:00</span>
+                  <span className="text-xs text-gray-400">32</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-orange-500 rounded-t mb-2" style={{ height: '120px' }}></div>
+                  <span className="text-xs text-gray-600">08:00</span>
+                  <span className="text-xs text-gray-400">78</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-red-500 rounded-t mb-2" style={{ height: '150px' }}></div>
+                  <span className="text-xs text-gray-600">12:00</span>
+                  <span className="text-xs text-gray-400">95</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-orange-500 rounded-t mb-2" style={{ height: '105px' }}></div>
+                  <span className="text-xs text-gray-600">16:00</span>
+                  <span className="text-xs text-gray-400">87</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <div className="w-8 bg-blue-500 rounded-t mb-2" style={{ height: '80px' }}></div>
+                  <span className="text-xs text-gray-600">20:00</span>
+                  <span className="text-xs text-gray-400">65</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-blue-600">85%</p>
+              <p className="text-sm text-gray-600">Current Capacity</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-orange-600">95%</p>
+              <p className="text-sm text-gray-600">Predicted Peak (2h)</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-red-600">110%</p>
+              <p className="text-sm text-gray-600">Critical Threshold</p>
+            </div>
+          </div>
         </div>
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Patient Queue</h3>
-            <p className="text-gray-600 mb-4">View and manage patient waiting list</p>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📋 Patient Queue</h3>
+            <p className="w c text-gray-600 mb-4">View and manage patient waiting list</p>
+            <div className="flex justify-center">
             <Link to="/doctor/patients#top">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 View Queue
               </button>
             </Link>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Medical Records</h3>
-            <p className="text-gray-600 mb-4">Access patient medical histories</p>
-            <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
-              View Records
-            </button>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📄 Medical Records</h3>
+            <p className="w c text-gray-600 mb-4">Access patient medical histories</p>
+            <div className="flex justify-center">
+            <Link to="/doctor/records">
+              <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                View Records
+              </button>
+            </Link>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Shift Schedule</h3>
-            <p className="text-gray-600 mb-4">Check your upcoming shifts</p>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📅 Shift Schedule</h3>
+            <p className="w c text-gray-600 mb-4">Check your upcoming shifts</p>
+            <div className="flex justify-center">
             <Link to="/doctor/schedule#top">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
                 View Schedule
               </button>
             </Link>
+            </div>
           </div>
         </div>
       </div>

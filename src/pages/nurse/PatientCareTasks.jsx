@@ -99,8 +99,8 @@ const PatientCareTasks = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Patient Care Tasks</h1>
-          <p className="mt-2 text-gray-600">Manage and track patient care activities</p>
+          <h1 className="c h-font text-3xl font-bold text-gray-900">Patient Care Tasks</h1>
+          <p className="w c mt-2 text-gray-600">Manage and track patient care activities</p>
         </div>
 
         {/* Filters */}

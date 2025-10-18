@@ -4,7 +4,7 @@ import { CONFIG } from '../../config';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white relative overflow-hidden">
+    <footer className="mt-3 bg-gray-800 text-white relative overflow-hidden">
       {/* subtle top gradient line */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400"></div>
 

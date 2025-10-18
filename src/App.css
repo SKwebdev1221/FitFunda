@@ -251,3 +251,60 @@
   font-size: 15px;
   font-weight: 500;
 }
+
+.c{
+  text-align: center;
+}
+
+/* Global button color overrides - force site-wide button colors */
+button,
+button[class*="btn"],
+.btn,
+.btn-primary,
+.btn-secondary,
+input[type="button"],
+input[type="submit"],
+a[role="button"],
+a.button {
+  background-color: #00aef0 !important;
+  border-color: #00aef0 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, transform 0.15s ease !important;
+}
+
+button:hover,
+button[class*="btn"]:hover,
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+a[role="button"]:hover,
+a.button:hover {
+  background-color: #0095c8 !important;
+  border-color: #0095c8 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Focus state */
+button:focus,
+button[class*="btn"]:focus,
+.btn:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+a[role="button"]:focus,
+a.button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(0, 174, 240, 0.18) !important;
+}
+
+/* Disabled buttons should still be readable but visually disabled */
+button:disabled,
+button[disabled],
+.btn[disabled],
+input[type="button"][disabled],
+input[type="submit"][disabled] {
+  opacity: 0.6 !important;
+  pointer-events: none !important;
+}

@@ -57,8 +57,8 @@ const SurgeGraph = ({ timeRange = '24h' }) => {
             return (
               <div key={index} className="flex flex-col items-center group relative">
                 <div
-                  className={`w-6 sm:w-8 rounded-t-xl bg-gradient-to-t ${color} shadow-md hover:shadow-lg transition-all duration-300`}
-                  style={{ height: `${Math.max(heightPercent, 5)}%`, minHeight: '5px' }}
+                  className={`w-6 sm:w-8 rounded-t-xl bg-gradient-to-t  ${color} shadow-md hover:shadow-lg transition-all duration-300`}
+                  style={{ height: `${Math.max(heightPercent)}%`, minHeight: '100px' }}
                   title={`${point.time}: ${point.patients} patients - ${point.reason}`}
                 ></div>
                 <span className="text-xs text-gray-700 mt-2 font-medium">{point.time}</span>

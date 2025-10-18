@@ -17,8 +17,8 @@ const InventoryDashboard = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Inventory Dashboard</h1>
-          <p className="w mt-2 text-gray-600">Welcome back, {user?.name || 'Inventory Manager'}</p>
+          <h1 className="c h-font text-3xl font-bold text-gray-900">Inventory Dashboard</h1>
+          <p className="w c mt-2 text-gray-600">Welcome back, {user?.name || 'Inventory Manager'}</p>
         </div>
 
         {/* Quick Stats */}
@@ -296,33 +296,39 @@ const InventoryDashboard = () => {
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Stock Status</h3>
-            <p className="text-gray-600 mb-4">View current inventory levels and alerts</p>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📦 Stock Status</h3>
+            <p className="w c text-gray-600 mb-4">View current inventory levels and alerts</p>
+            <div className="flex justify-center">
             <Link to="/inventory/stock#top">
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                 View Inventory
               </button>
             </Link>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Supply Orders</h3>
-            <p className="text-gray-600 mb-4">Manage pending and completed orders</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">🛒 Supply Orders</h3>
+            <p className="w text-gray-600 mb-4 text-center">Manage pending and completed orders</p>
+            <div class="flex justify-center">
             <Link to="/inventory/orders#top">
               <button className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
                 View Orders
               </button>
             </Link>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Reports & Analytics</h3>
-            <p className="text-gray-600 mb-4">Generate inventory reports and insights</p>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📈 Reports & Analytics</h3>
+            <p className="w c text-gray-600 mb-4">Generate inventory reports and insights</p>
+            <div className="flex justify-center">
             <Link to="/inventory/reports#top">
               <button className="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700">
                 View Reports
               </button>
             </Link>
+            </div>
           </div>
         </div>
       </div>

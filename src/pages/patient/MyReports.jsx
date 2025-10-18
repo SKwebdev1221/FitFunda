@@ -12,7 +12,12 @@ const MyReports = () => {
       doctor: 'Dr. Sarah Johnson',
       type: 'Physical Exam',
       status: 'Completed',
-      summary: 'All vitals normal. Recommended annual flu shot.'
+      summary: 'All vitals normal. Recommended annual flu shot.',
+      details: {
+        vitals: { bloodPressure: '120/80', heartRate: 72, temperature: '98.6°F', weight: '165 lbs' },
+        assessment: 'Patient appears well-nourished and in no acute distress.',
+        recommendations: ['Annual flu vaccination', 'Continue current exercise regimen', 'Follow-up in 1 year']
+      }
     },
     {
       id: 2,
@@ -21,7 +26,16 @@ const MyReports = () => {
       doctor: 'Dr. Michael Chen',
       type: 'Lab Results',
       status: 'Completed',
-      summary: 'Cholesterol levels slightly elevated. Diet and exercise recommended.'
+      summary: 'Cholesterol levels slightly elevated. Diet and exercise recommended.',
+      details: {
+        tests: [
+          { name: 'Total Cholesterol', value: '245 mg/dL', range: '125-200 mg/dL', status: 'High' },
+          { name: 'HDL Cholesterol', value: '55 mg/dL', range: '40-60 mg/dL', status: 'Normal' },
+          { name: 'LDL Cholesterol', value: '160 mg/dL', range: '0-100 mg/dL', status: 'High' },
+          { name: 'Triglycerides', value: '150 mg/dL', range: '0-150 mg/dL', status: 'Normal' }
+        ],
+        recommendations: ['Low-cholesterol diet', 'Regular exercise (30 min/day)', 'Follow-up lipid panel in 3 months']
+      }
     },
     {
       id: 3,
@@ -30,7 +44,12 @@ const MyReports = () => {
       doctor: 'Dr. Emily Davis',
       type: 'Consultation',
       status: 'Completed',
-      summary: 'Heart rhythm normal. Continue current medication regimen.'
+      summary: 'Heart rhythm normal. Continue current medication regimen.',
+      details: {
+        findings: 'Normal sinus rhythm, no arrhythmias detected.',
+        medications: ['Aspirin 81mg daily', 'Lisinopril 10mg daily', 'Metoprolol 25mg daily'],
+        recommendations: ['Continue current medications', 'Regular follow-up every 6 months', 'Holter monitor if symptoms recur']
+      }
     },
     {
       id: 4,
@@ -39,7 +58,42 @@ const MyReports = () => {
       doctor: 'Dr. Robert Wilson',
       type: 'Imaging',
       status: 'Completed',
-      summary: 'Clear chest X-ray. No abnormalities detected.'
+      summary: 'Clear chest X-ray. No abnormalities detected.',
+      details: {
+        findings: 'Lungs are clear bilaterally. Heart size and contour normal. No pleural effusion or pneumothorax.',
+        impression: 'No acute cardiopulmonary disease.',
+        recommendations: ['No follow-up imaging required unless symptoms develop']
+      }
+    },
+    {
+      id: 5,
+      title: 'COVID-19 Test Results',
+      date: '2024-01-05',
+      doctor: 'Dr. Lisa Park',
+      type: 'Lab Results',
+      status: 'Completed',
+      summary: 'Negative for SARS-CoV-2. No evidence of current infection.',
+      details: {
+        testType: 'RT-PCR',
+        result: 'Negative',
+        collectionDate: '2024-01-05',
+        recommendations: ['Continue standard precautions', 'Vaccination recommended if not up to date']
+      }
+    },
+    {
+      id: 6,
+      title: 'Dermatology Consultation',
+      date: '2023-11-28',
+      doctor: 'Dr. James Brown',
+      type: 'Consultation',
+      status: 'Completed',
+      summary: 'Benign skin lesion. No malignancy suspected.',
+      details: {
+        findings: 'Small pigmented lesion on left forearm, regular borders, uniform color.',
+        diagnosis: 'Seborrheic keratosis',
+        treatment: 'No treatment required, monitor for changes',
+        recommendations: ['Monthly self-examination', 'Return if lesion changes in size, color, or shape']
+      }
     }
   ];
 
@@ -48,8 +102,8 @@ const MyReports = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Medical Reports</h1>
-          <p className="mt-2 text-gray-600">Access and view your medical records and test results</p>
+          <h1 className="c h-font text-3xl font-bold text-gray-900">My Medical Reports</h1>
+          <p className="w c mt-2 text-gray-600">Access and view your medical records and test results</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -115,54 +169,166 @@ const MyReports = () => {
                   <p className="w text-gray-700">{selectedReport.summary}</p>
                 </div>
 
-                {/* Mock Report Content */}
+                {/* Detailed Report Content */}
                 <div className="border-t pt-6">
                   <h3 className="text-lg font-semibold mb-4">Detailed Results</h3>
 
-                  {selectedReport.type === 'Lab Results' && (
+                  {selectedReport.type === 'Lab Results' && selectedReport.details?.tests && (
                     <div className="space-y-4">
-                      <div className="grid grid-cols-3 gap-4 font-medium text-gray-700 border-b pb-2">
+                      <div className="grid grid-cols-4 gap-4 font-medium text-gray-700 border-b pb-2">
                         <span>Test</span>
                         <span>Result</span>
                         <span>Reference Range</span>
+                        <span>Status</span>
                       </div>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <span>Total Cholesterol</span>
-                        <span>245 mg/dL</span>
-                        <span> 200 mg/dL</span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <span>HDL Cholesterol</span>
-                        <span>55 mg/dL</span>
-                        <span> 40 mg/dL</span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4 text-sm">
-                        <span>LDL Cholesterol</span>
-                        <span>160 mg/dL</span>
-                        <span> 130 mg/dL</span>
-                      </div>
+                      {selectedReport.details.tests.map((test, index) => (
+                        <div key={index} className="grid grid-cols-4 gap-4 text-sm">
+                          <span>{test.name}</span>
+                          <span className={test.status === 'High' ? 'text-red-600 font-medium' : 'text-gray-900'}>{test.value}</span>
+                          <span>{test.range}</span>
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            test.status === 'High' ? 'bg-red-100 text-red-800' :
+                            test.status === 'Low' ? 'bg-blue-100 text-blue-800' :
+                            'bg-green-100 text-green-800'
+                          }`}>
+                            {test.status}
+                          </span>
+                        </div>
+                      ))}
+                      {selectedReport.details.recommendations && (
+                        <div className="mt-4">
+                          <h4 className="font-medium mb-2">Recommendations:</h4>
+                          <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            {selectedReport.details.recommendations.map((rec, index) => (
+                              <li key={index}>{rec}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </div>
                   )}
 
-                  {selectedReport.type === 'Physical Exam' && (
-                    <div className="grid grid-cols-2 gap-6">
+                  {selectedReport.type === 'Physical Exam' && selectedReport.details && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <h4 className="font-medium mb-2">Vital Signs</h4>
-                        <div className="w space-y-2 text-sm">
-                          <div>Blood Pressure: 120/80 mmHg</div>
-                          <div>Heart Rate: 72 bpm</div>
-                          <div>Temperature: 98.6°F</div>
-                          <div>Weight: 165 lbs</div>
+                        <div className="space-y-2 text-sm">
+                          <div><span className="font-medium">Blood Pressure:</span> {selectedReport.details.vitals.bloodPressure}</div>
+                          <div><span className="font-medium">Heart Rate:</span> {selectedReport.details.vitals.heartRate} bpm</div>
+                          <div><span className="font-medium">Temperature:</span> {selectedReport.details.vitals.temperature}</div>
+                          <div><span className="font-medium">Weight:</span> {selectedReport.details.vitals.weight}</div>
                         </div>
                       </div>
                       <div>
                         <h4 className="font-medium mb-2">Assessment</h4>
-                        <div className="w space-y-2 text-sm">
-                          <div>General: Well-appearing</div>
-                          <div>HEENT: Normal</div>
-                          <div>Cardiovascular: Regular rhythm</div>
-                          <div>Respiratory: Clear</div>
+                        <p className="text-sm text-gray-700">{selectedReport.details.assessment}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <h4 className="font-medium mb-2">Recommendations:</h4>
+                        <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                          {selectedReport.details.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedReport.type === 'Consultation' && selectedReport.details && (
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium mb-2">Findings</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.findings}</p>
+                      </div>
+                      {selectedReport.details.medications && (
+                        <div>
+                          <h4 className="font-medium mb-2">Current Medications</h4>
+                          <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            {selectedReport.details.medications.map((med, index) => (
+                              <li key={index}>{med}</li>
+                            ))}
+                          </ul>
                         </div>
+                      )}
+                      <div>
+                        <h4 className="font-medium mb-2">Recommendations</h4>
+                        <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                          {selectedReport.details.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedReport.type === 'Imaging' && selectedReport.details && (
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium mb-2">Findings</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.findings}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">Impression</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.impression}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">Recommendations</h4>
+                        <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                          {selectedReport.details.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedReport.details?.testType && (
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                          <span className="font-medium">Test Type:</span> {selectedReport.details.testType}
+                        </div>
+                        <div>
+                          <span className="font-medium">Result:</span> <span className={selectedReport.details.result === 'Negative' ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}>{selectedReport.details.result}</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Collection Date:</span> {new Date(selectedReport.details.collectionDate).toLocaleDateString()}
+                        </div>
+                      </div>
+                      {selectedReport.details.recommendations && (
+                        <div>
+                          <h4 className="font-medium mb-2">Recommendations:</h4>
+                          <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                            {selectedReport.details.recommendations.map((rec, index) => (
+                              <li key={index}>{rec}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {selectedReport.details?.diagnosis && (
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-medium mb-2">Findings</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.findings}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">Diagnosis</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.diagnosis}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">Treatment</h4>
+                        <p className="text-sm text-gray-700">{selectedReport.details.treatment}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-medium mb-2">Recommendations</h4>
+                        <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                          {selectedReport.details.recommendations.map((rec, index) => (
+                            <li key={index}>{rec}</li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   )}

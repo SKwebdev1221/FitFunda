@@ -107,8 +107,8 @@ const MedicationManagement = () => {
       <Navbar />
       <div className="w-full px-6 sm:px-8 lg:px-12 py-12">
         <div className="mb-8">
-          <h1 className="text-xl font-bold text-gray-900">Medication Management</h1>
-          <p className="w mt-2 text-xs text-gray-600">Track and administer patient medications</p>
+          <h1 className="c h-font text-xl font-bold text-gray-900">Medication Management</h1>
+          <p className="w c mt-2 text-xs text-gray-600">Track and administer patient medications</p>
         </div>
 
         {/* Quick Stats */}

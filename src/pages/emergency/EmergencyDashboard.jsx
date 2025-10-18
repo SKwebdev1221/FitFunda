@@ -1,11 +1,13 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useAlerts } from '../../hooks/useAlerts';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
 const EmergencyDashboard = () => {
   const { user } = useAuth();
   const { alerts } = useAlerts();
+  const navigate = useNavigate();
 
   const emergencyAlerts = alerts.filter(alert =>
     alert.type === 'emergency' || alert.type === 'surge_alert' || alert.type === 'ambulance_dispatch'
@@ -16,8 +18,8 @@ const EmergencyDashboard = () => {
       <Navbar />
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Emergency Response Dashboard</h1>
-          <p className="w mt-2 text-gray-600">Welcome back, {user?.name || 'Emergency Coordinator'}</p>
+          <h1 className="h-font c text-3xl font-bold text-gray-900">Emergency Response Dashboard</h1>
+          <p className="w text-center mt-2 text-gray-600">Welcome back, {user?.name || 'Emergency Coordinator'}</p>
         </div>
 
         {/* Critical Alerts Banner */}
@@ -150,23 +152,23 @@ const EmergencyDashboard = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="w text-sm font-medium">Ambulance 1</span>
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
+                <span className="w  bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="w text-sm font-medium">Ambulance 2</span>
-                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">In Transit</span>
+                <span className="w bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">In Transit</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="w text-sm font-medium">Ambulance 3</span>
-                <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">At Scene</span>
+                <span className="w bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">At Scene</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="w text-sm font-medium">Ambulance 4</span>
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
+                <span className="w bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Available</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="w text-sm font-medium">Ambulance 5</span>
-                <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Transporting</span>
+                <span className="w bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Transporting</span>
               </div>
             </div>
           </div>
@@ -239,36 +241,42 @@ const EmergencyDashboard = () => {
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Surge Alerts</h3>
-            <p className="text-gray-600 mb-4">Monitor and respond to patient surge predictions</p>
-            <button
-              className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
-              onClick={() => alert('Viewing Surge Alerts...')}
-            >
-              View Alerts
-            </button>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">📊 View Alerts</h3>
+            <p className="w c text-gray-600 mb-4">Monitor and respond to patient surge predictions and emergency notifications</p>
+            <div className="flex justify-center">
+              <button
+                className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700"
+                onClick={() => navigate('/emergency/alerts')}
+              >
+                View Alerts
+              </button>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Ambulance Tracking</h3>
-            <p className="text-gray-600 mb-4">Track ambulance locations and status in real-time</p>
-            <button
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-              onClick={() => alert('Tracking Ambulance Fleet...')}
-            >
-              Track Fleet
-            </button>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">🚑 Track Fleet</h3>
+            <p className="w c text-gray-600 mb-4 w-full">Monitor ambulance locations, status, and real-time fleet management</p>
+            <div className="flex justify-center">
+              <button
+                className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700"
+                onClick={() => navigate('/emergency/ambulance')}
+              >
+                Track Fleet
+              </button>
+            </div>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Inter-Hospital Coordination</h3>
-            <p className="text-gray-600 mb-4">Coordinate patient transfers between facilities</p>
-            <button
-              className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
-              onClick={() => alert('Coordinating Inter-Hospital Transfers...')}
-            >
-              Coordinate
-            </button>
+            <h3 className="c text-lg font-semibold text-gray-900 mb-2">🏥 Coordinate</h3>
+            <p className="w c text-gray-600 mb-4">Manage inter-hospital patient transfers and resource coordination</p>
+            <div className="flex justify-center">
+              <button
+                className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700"
+                onClick={() => navigate('/emergency/coordination')}
+              >
+                Coordinate
+              </button>
+            </div>
           </div>
         </div>
       </div>

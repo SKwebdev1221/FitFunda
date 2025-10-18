@@ -147,7 +147,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-gradient-to-r from-[#00aef0] to-[#00aef0] hover:from-[#0095c8] hover:to-[#0095c8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00aef0] disabled:opacity-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               {loading ? (
                 <div className="flex items-center">

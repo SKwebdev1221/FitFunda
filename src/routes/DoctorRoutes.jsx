@@ -6,6 +6,7 @@ import PatientQueue from '../pages/doctor/PatientQueue';
 import ShiftSchedule from '../pages/doctor/ShiftSchedule';
 import DiseaseForecast from '../pages/doctor/DiseaseForecast';
 import Communication from '../pages/doctor/Communication';
+import MedicalRecords from '../pages/doctor/MedicalRecords';
 
 const DoctorRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const DoctorRoutes = () => {
       <Route path="/schedule" element={<ShiftSchedule />} />
       <Route path="/forecasts" element={<DiseaseForecast />} />
       <Route path="/communication" element={<Communication />} />
+      <Route path="/records" element={<MedicalRecords />} />
     </Routes>
   );
 };
