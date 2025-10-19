@@ -2,7 +2,7 @@
 
 Welcome to **FitFunda**, an innovative web platform designed to revolutionize hospital management during unpredictable patient surges. Built with React and Vite, this application harnesses the power of AI to proactively handle challenges like festival crowds, pollution spikes, and epidemics, ensuring hospitals are always prepared.
 
-## 🚀 Quick Start: Installation & Setup
+##  Quick Start: Installation & Setup
 
 Before diving into the world of intelligent healthcare management, let's get you up and running. This project uses modern web technologies, including special dependencies for smooth animations and styling.
 
@@ -47,7 +47,7 @@ Before diving into the world of intelligent healthcare management, let's get you
 
 That's it! You're now ready to explore how FitFunda transforms hospital operations.
 
-## 🏥 The Problem: Unpredictable Patient Surges
+##  The Problem: Unpredictable Patient Surges
 
 Hospitals worldwide face critical challenges during sudden spikes in patient volume:
 - **Festival seasons**: Massive crowds lead to accidents and health emergencies.
@@ -56,7 +56,7 @@ Hospitals worldwide face critical challenges during sudden spikes in patient vol
 
 Traditional systems react too late, leading to overwhelmed staff, depleted supplies, and compromised patient care. FitFunda changes this by introducing **proactive, AI-driven management**.
 
-## 🤖 How FitFunda Solves It: AI Agent at the Helm
+##  How FitFunda Solves It: AI Agent at the Helm
 
 FitFunda features an autonomous AI agent that analyzes real-time data from multiple sources:
 - Patient admission trends
@@ -69,7 +69,7 @@ The AI doesn't just monitor—it **acts**. It recommends:
 - **Supply procurement**: Predict and order medical supplies before shortages occur.
 - **Patient advisories**: Issue public health warnings and guide patients to appropriate care.
 
-## 📋 User Workflow: From Insight to Action
+##  User Workflow: From Insight to Action
 
 Imagine a pollution spike in Mumbai during Diwali. Here's how FitFunda empowers stakeholders:
 
@@ -91,7 +91,7 @@ Imagine a pollution spike in Mumbai during Diwali. Here's how FitFunda empowers 
    - Post-event analytics refine the AI model, improving future predictions.
    - Reports track efficiency, helping hospitals learn and adapt.
 
-## 🌟 Key Features That Make It Engaging
+##  Key Features That Make It Engaging
 
 - **Multi-Role Dashboards**: Tailored interfaces for doctors, nurses, management, and patients.
 - **Real-Time Alerts**: Surge warnings with actionable insights.
@@ -101,7 +101,7 @@ Imagine a pollution spike in Mumbai during Diwali. Here's how FitFunda empowers 
 
 FitFunda isn't just a tool—it's a guardian for healthcare, turning chaos into controlled efficiency. Ready to experience the future of hospital management? Dive in and see how AI can save lives before crises hit.
 
-## 🛠 Tech Stack
+##  Tech Stack
 - **Frontend**: React 19, Vite
 - **Styling**: Tailwind CSS, Framer Motion
 - **Routing**: React Router DOM
