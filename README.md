@@ -8,10 +8,10 @@ Before diving into the world of intelligent healthcare management, let's get you
 
 ### Prerequisites
 - Node.js (version 16 or higher)
-- npm or yarn package manager
+- npm package manager
 
 ### Installation Steps
-1. **Clone the repository** (if not already done):
+1. **Clone the repository** :
    ```
    git clone <repository-url>
    cd FitFunda
@@ -107,4 +107,3 @@ FitFunda isn't just a tool—it's a guardian for healthcare, turning chaos into 
 - **Routing**: React Router DOM
 - **Build Tool**: Vite with ESLint
 
-For more details, explore the codebase or reach out to the development team!
