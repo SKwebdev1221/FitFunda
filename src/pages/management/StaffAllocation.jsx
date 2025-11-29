@@ -1,21 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { staffAPI } from '../../api/staff';
 import StaffTable from '../../components/tables/StaffTable';
 import Navbar from '../../components/common/Navbar';
-import Footer from '../../components/common/Footer';
+
 const StaffAllocation = () => {
   const [selectedDepartment, setSelectedDepartment] = useState('all');
+  const [staff, setStaff] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    total: 0,
+    onDuty: 0,
+    offDuty: 0,
+    vacancies: 0
+  });
 
-  const handleEditStaff = (staff) => {
-    console.log('Editing staff:', staff);
-    alert(`Editing ${staff.name}`);
-  };
+  useEffect(() => {
+    fetchStaff();
+  }, []);
 
-  const handleDeleteStaff = (staffId) => {
-    console.log('Deleting staff:', staffId);
-    if (window.confirm('Are you sure you want to delete this staff member?')) {
-      alert('Staff member deleted');
+  const fetchStaff = async () => {
+    try {
+      const data = await staffAPI.getAll();
+      setStaff(data);
+
+      // Calculate stats
+      const onDuty = data.filter(s => s.status === 'On Duty').length;
+      setStats({
+        total: data.length,
+        onDuty: onDuty,
+        offDuty: data.length - onDuty,
+        vacancies: 12 // Mock vacancy count
+      });
+    } catch (error) {
+      console.error('Failed to fetch staff:', error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleEditStaff = async (staffMember) => {
+    console.log('Editing staff:', staffMember);
+    alert(`Editing ${staffMember.name}`);
+    // TODO: Implement edit modal
+  };
+
+  const handleDeleteStaff = async (staffId) => {
+    if (window.confirm('Are you sure you want to delete this staff member?')) {
+      try {
+        await staffAPI.delete(staffId);
+        alert('Staff member deleted');
+        fetchStaff(); // Refresh list
+      } catch (error) {
+        console.error('Failed to delete staff:', error);
+        alert('Failed to delete staff member');
+      }
+    }
+  };
+
+  const filteredStaff = selectedDepartment === 'all'
+    ? staff
+    : staff.filter(s => s.department?.toLowerCase() === selectedDepartment);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -30,20 +74,20 @@ const StaffAllocation = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Total Staff</h3>
-            <p className="text-3xl font-bold text-blue-600">345</p>
+            <p className="text-3xl font-bold text-blue-600">{stats.total}</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">On Duty</h3>
-            <p className="text-3xl font-bold text-green-600">287</p>
-            <p className="text-sm text-gray-500">83% present</p>
+            <p className="text-3xl font-bold text-green-600">{stats.onDuty}</p>
+            <p className="text-sm text-gray-500">{stats.total > 0 ? Math.round((stats.onDuty / stats.total) * 100) : 0}% present</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Off Duty</h3>
-            <p className="text-3xl font-bold text-gray-600">58</p>
+            <p className="text-3xl font-bold text-gray-600">{stats.offDuty}</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-900">Vacancies</h3>
-            <p className="text-3xl font-bold text-red-600">12</p>
+            <p className="text-3xl font-bold text-red-600">{stats.vacancies}</p>
           </div>
         </div>
 
@@ -68,10 +112,18 @@ const StaffAllocation = () => {
 
         {/* Staff Table */}
         <div className="bg-white rounded-lg shadow-md">
-          <StaffTable
-            onEdit={handleEditStaff}
-            onDelete={handleDeleteStaff}
-          />
+          {loading ? (
+            <div className="p-12 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+              <p className="mt-4 text-gray-600">Loading staff...</p>
+            </div>
+          ) : (
+            <StaffTable
+              staff={filteredStaff}
+              onEdit={handleEditStaff}
+              onDelete={handleDeleteStaff}
+            />
+          )}
         </div>
 
         {/* Quick Actions */}

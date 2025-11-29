@@ -20,8 +20,20 @@ const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   }
 
   // Check role-based access
-  if (allowedRoles.length > 0 && !allowedRoles.includes(currentRole)) {
-    return <Navigate to="/unauthorized" replace />;
+  // Allow access if currentRole matches any allowed role (case-insensitive)
+  if (allowedRoles.length > 0) {
+    const normalizedCurrentRole = currentRole?.toLowerCase();
+    const normalizedAllowedRoles = allowedRoles.map(role => role?.toLowerCase());
+    
+    if (!normalizedAllowedRoles.includes(normalizedCurrentRole)) {
+      console.log('ProtectedRoute: Access denied', { 
+        currentRole, 
+        allowedRoles, 
+        normalizedCurrentRole, 
+        normalizedAllowedRoles 
+      });
+      return <Navigate to="/unauthorized" replace />;
+    }
   }
 
   return children;

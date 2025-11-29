@@ -1,6 +1,9 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-
-import { CONFIG } from '../config';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { dashboardAPI } from '../api/dashboard';
+import { staffAPI } from '../api/staff';
+import { inventoryAPI } from '../api/inventory';
+import { bedsAPI } from '../api/beds';
+import { useAuth } from './AuthContext';
 
 export const DataContext = createContext();
 
@@ -13,65 +16,91 @@ export const useData = () => {
 };
 
 export const DataProvider = ({ children }) => {
+  const { isAuthenticated, loading: authLoading } = useAuth();
   const [predictionData, setPredictionData] = useState(null);
   const [staffData, setStaffData] = useState([]);
+  const [staffReadiness, setStaffReadiness] = useState([]);
   const [inventoryData, setInventoryData] = useState([]);
   const [bedData, setBedData] = useState([]);
+  const [bedStats, setBedStats] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchPredictionData = async () => {
+    if (!isAuthenticated) return;
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(`${CONFIG.API_BASE_URL}/predictions`);
-      if (response.ok) {
-        const data = await response.json();
-        setPredictionData(data);
-      } else {
-        setError('Failed to fetch prediction data');
-      }
+      const data = await dashboardAPI.getPredictions();
+      setPredictionData(data);
     } catch (err) {
-      setError('Network error while fetching predictions');
-      console.error('Fetch prediction data error:', err);
+      // Don't show error if it's a 401 (user not authenticated)
+      if (err.response?.status !== 401) {
+        setError('Network error while fetching predictions');
+        console.error('Fetch prediction data error:', err);
+      }
     } finally {
       setLoading(false);
     }
   };
 
   const fetchStaffData = async () => {
+    if (!isAuthenticated) return;
     try {
-      const response = await fetch(`${CONFIG.API_BASE_URL}/staff`);
-      if (response.ok) {
-        const data = await response.json();
-        setStaffData(data);
-      }
+      const data = await staffAPI.getAll();
+      setStaffData(data);
     } catch (err) {
-      console.error('Fetch staff data error:', err);
+      if (err.response?.status !== 401) {
+        console.error('Fetch staff data error:', err);
+      }
+    }
+  };
+
+  const fetchStaffReadiness = async () => {
+    if (!isAuthenticated) return;
+    try {
+      const data = await staffAPI.getReadiness();
+      setStaffReadiness(data);
+    } catch (err) {
+      if (err.response?.status !== 401) {
+        console.error('Fetch staff readiness error:', err);
+      }
     }
   };
 
   const fetchInventoryData = async () => {
+    if (!isAuthenticated) return;
     try {
-      const response = await fetch(`${CONFIG.API_BASE_URL}/inventory`);
-      if (response.ok) {
-        const data = await response.json();
-        setInventoryData(data);
-      }
+      const data = await inventoryAPI.getAll();
+      setInventoryData(data);
     } catch (err) {
-      console.error('Fetch inventory data error:', err);
+      if (err.response?.status !== 401) {
+        console.error('Fetch inventory data error:', err);
+      }
     }
   };
 
   const fetchBedData = async () => {
+    if (!isAuthenticated) return;
     try {
-      const response = await fetch(`${CONFIG.API_BASE_URL}/beds`);
-      if (response.ok) {
-        const data = await response.json();
-        setBedData(data);
-      }
+      const data = await bedsAPI.getAll();
+      setBedData(data);
     } catch (err) {
-      console.error('Fetch bed data error:', err);
+      if (err.response?.status !== 401) {
+        console.error('Fetch bed data error:', err);
+      }
+    }
+  };
+
+  const fetchBedStats = async () => {
+    if (!isAuthenticated) return;
+    try {
+      const data = await bedsAPI.getStats();
+      setBedStats(data);
+    } catch (err) {
+      if (err.response?.status !== 401) {
+        console.error('Fetch bed stats error:', err);
+      }
     }
   };
 
@@ -79,32 +108,46 @@ export const DataProvider = ({ children }) => {
     await Promise.all([
       fetchPredictionData(),
       fetchStaffData(),
+      fetchStaffReadiness(),
       fetchInventoryData(),
-      fetchBedData()
+      fetchBedData(),
+      fetchBedStats()
     ]);
   };
 
   useEffect(() => {
-    refreshAllData();
-    // Set up periodic refresh for real-time data
-    const interval = setInterval(() => {
-      fetchPredictionData();
-    }, 30000); // Refresh every 30 seconds
+    // Only fetch data if user is authenticated and auth check is complete
+    if (!authLoading && isAuthenticated) {
+      refreshAllData();
 
-    return () => clearInterval(interval);
-  }, []);
+      // Set up periodic refresh for real-time data
+      const interval = setInterval(() => {
+        if (isAuthenticated) {
+          fetchPredictionData();
+          fetchBedStats();
+          fetchStaffReadiness();
+        }
+      }, 30000); // Refresh every 30 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isAuthenticated, authLoading]);
 
   const value = {
     predictionData,
     staffData,
+    staffReadiness,
     inventoryData,
     bedData,
+    bedStats,
     loading,
     error,
     fetchPredictionData,
     fetchStaffData,
+    fetchStaffReadiness,
     fetchInventoryData,
     fetchBedData,
+    fetchBedStats,
     refreshAllData
   };
 

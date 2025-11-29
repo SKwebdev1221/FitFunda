@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { useAlerts } from '../hooks/useAlerts';
 import { CONFIG } from '../config';
 
 const Signup = () => {
@@ -11,23 +13,31 @@ const Signup = () => {
     role: CONFIG.ROLES.PATIENT
   });
   const [loading, setLoading] = useState(false);
+  const { register } = useAuth();
+  const { error, success } = useAlerts();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      error('Passwords do not match');
       return;
     }
 
     setLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setLoading(false);
+    const result = await register(formData);
+
+    if (result.success) {
+      success('Account created successfully! Please sign in.');
+      // Redirect to login after successful registration
       navigate(CONFIG.ROUTES.LOGIN);
-    }, 1000);
+    } else {
+      error(result.error);
+    }
+
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -177,4 +187,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;  
+export default Signup;

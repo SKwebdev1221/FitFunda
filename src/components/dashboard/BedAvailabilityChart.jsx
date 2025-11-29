@@ -1,10 +1,13 @@
 import React from 'react';
 import { useData } from '../../hooks/useData';
 
-const BedAvailabilityChart = () => {
-  const { bedData, loading } = useData();
+const BedAvailabilityChart = ({ data }) => {
+  const { bedStats, loading } = useData();
 
-  if (loading) {
+  // Use passed data or context data
+  const chartData = data || bedStats;
+
+  if (loading && !chartData?.length) {
     return (
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold mb-4">Bed Availability</h3>
@@ -15,8 +18,22 @@ const BedAvailabilityChart = () => {
     );
   }
 
-  // Mock data - in real app, use bedData from context
-  const wards = [
+  // Map backend stats to display format with colors
+  // Backend returns: [{name: 'Dept', total: 10, occupied: 5}, ...]
+  const colorMap = {
+    'Emergency': 'bg-red-500',
+    'ICU': 'bg-orange-500',
+    'Medical': 'bg-blue-500',
+    'Surgical': 'bg-green-500',
+    'Maternity': 'bg-purple-500',
+    'General': 'bg-gray-500'
+  };
+
+  const wards = chartData?.length > 0 ? chartData.map(stat => ({
+    ...stat,
+    color: colorMap[stat.name] || 'bg-gray-400'
+  })) : [
+    // Fallback mock data if API returns empty
     { name: 'Emergency', total: 50, occupied: 35, color: 'bg-red-500' },
     { name: 'ICU', total: 20, occupied: 18, color: 'bg-orange-500' },
     { name: 'Medical', total: 100, occupied: 75, color: 'bg-blue-500' },
@@ -30,7 +47,7 @@ const BedAvailabilityChart = () => {
       <div className="space-y-4">
         {wards.map((ward) => {
           const available = ward.total - ward.occupied;
-          const occupancyRate = (ward.occupied / ward.total) * 100;
+          const occupancyRate = ward.total > 0 ? (ward.occupied / ward.total) * 100 : 0;
 
           return (
             <div key={ward.name} className="flex items-center justify-between">

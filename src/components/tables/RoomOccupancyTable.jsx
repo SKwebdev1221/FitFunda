@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 
-const RoomOccupancyTable = ({ rooms = [], onAssign, onDischarge }) => {
+const RoomOccupancyTable = ({ rooms = [], beds = [], onAssign, onDischarge }) => {
   const [filterBy, setFilterBy] = useState('all'); // all, occupied, available
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredRooms = rooms.filter(room => {
-    const matchesSearch = room.number.toString().includes(searchTerm) ||
-                         room.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         room.patient?.toLowerCase().includes(searchTerm.toLowerCase());
+  // Convert beds to rooms format if beds are provided
+  const roomsData = beds.length > 0 ? beds.map(bed => ({
+    id: bed._id || bed.id,
+    number: bed.bed_number || bed.number,
+    type: bed.department || bed.type,
+    occupied: bed.status === 'occupied',
+    patient: bed.patient_name || bed.patient,
+    condition: bed.condition,
+    admissionDate: bed.admission_date || bed.admissionDate,
+    ...bed
+  })) : rooms;
+
+  const filteredRooms = roomsData.filter(room => {
+    const matchesSearch = room.number?.toString().includes(searchTerm) ||
+      room.type?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      room.patient?.toLowerCase().includes(searchTerm.toLowerCase());
 
     if (filterBy === 'occupied') {
       return matchesSearch && room.occupied;
@@ -27,7 +39,7 @@ const RoomOccupancyTable = ({ rooms = [], onAssign, onDischarge }) => {
     { id: 5, number: 'ORTH-302', type: 'Orthopedic', occupied: false, patient: null, condition: null, admissionDate: null }
   ];
 
-  const displayRooms = rooms.length > 0 ? filteredRooms : mockRooms;
+  const displayRooms = roomsData.length > 0 ? filteredRooms : mockRooms;
 
   const getStatusColor = (occupied) => {
     return occupied ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800';

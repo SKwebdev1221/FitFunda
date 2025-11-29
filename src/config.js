@@ -1,7 +1,7 @@
 // Configuration constants and environment variables
 export const CONFIG = {
   // API Base URLs
-  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api',
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1',
 
   // Role definitions
   ROLES: {

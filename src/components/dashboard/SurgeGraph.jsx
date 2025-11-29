@@ -1,8 +1,9 @@
 import React from 'react';
 import { usePredictionData } from '../../hooks/usePredictionData';
 
-const SurgeGraph = ({ timeRange = '24h' }) => {
-  const { data, loading } = usePredictionData(timeRange);
+const SurgeGraph = ({ timeRange = '24h', data: propData }) => {
+  const { data: hookData, loading } = usePredictionData(timeRange);
+  const data = propData || hookData;
 
   // Mock data fallback
   const mockSurgeData = [
@@ -51,8 +52,8 @@ const SurgeGraph = ({ timeRange = '24h' }) => {
             const heightPercent = Math.min(((point.patients / maxPatients) * 100) * 1.3, 100); // boosted scaling
             const color =
               point.reason.includes('Diwali') ? 'from-red-400 to-red-600' :
-              point.patients > 80 ? 'from-orange-400 to-orange-600' :
-              'from-blue-400 to-blue-600';
+                point.patients > 80 ? 'from-orange-400 to-orange-600' :
+                  'from-blue-400 to-blue-600';
 
             return (
               <div key={index} className="flex flex-col items-center group relative">
@@ -96,10 +97,9 @@ const SurgeGraph = ({ timeRange = '24h' }) => {
           <div key={index} className="flex items-center justify-between text-sm">
             <div className="flex items-center space-x-2">
               <span
-                className={`w-2.5 h-2.5 rounded-full ${
-                  point.reason.includes('Diwali') ? 'bg-red-500' :
-                  point.patients > 80 ? 'bg-orange-500' : 'bg-blue-500'
-                }`}
+                className={`w-2.5 h-2.5 rounded-full ${point.reason.includes('Diwali') ? 'bg-red-500' :
+                    point.patients > 80 ? 'bg-orange-500' : 'bg-blue-500'
+                  }`}
               ></span>
               <span className="text-gray-600">{point.time}:</span>
               <span className="font-medium">{point.reason}</span>

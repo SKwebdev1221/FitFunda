@@ -18,7 +18,9 @@ const Login = () => {
     const result = await login(credentials);
 
     if (result.success) {
-      navigate(`/${credentials.email.split('@')[0]}`);
+      // Navigate based on user role
+      const role = result.user?.role || 'patient';
+      navigate(`/${role}`);
     } else {
       error(result.error);
     }
@@ -140,24 +142,24 @@ const Login = () => {
 
           {/* Subtle Demo Info */}
           {/* Subtle Demo Info */}
-<div className="mt-6 text-xs text-gray-500 text-center border-t border-gray-100 pt-4">
-  <p className="text-gray-500 mb-2">
-    💡 <span className="font-semibold text-gray-700">Try demo accounts:</span>
-  </p>
+          <div className="mt-6 text-xs text-gray-500 text-center border-t border-gray-100 pt-4">
+            <p className="text-gray-500 mb-2">
+              💡 <span className="font-semibold text-gray-700">Try demo accounts:</span>
+            </p>
 
-  <div className="grid grid-cols-2 gap-y-1">
-    <p>management@test.com</p>
-    <p>doctor@test.com</p>
-    <p>nurse@test.com</p>
-    <p>emergency@test.com</p>
-    <p>patient@test.com</p>
-    <p>inventory@test.com</p>
-  </div>
+            <div className="grid grid-cols-2 gap-y-1">
+              <p>management@test.com</p>
+              <p>doctor@test.com</p>
+              <p>nurse@test.com</p>
+              <p>emergency@test.com</p>
+              <p>patient@test.com</p>
+              <p>inventory@test.com</p>
+            </div>
 
-  <p className="italic text-gray-400 mt-2">
-    Password: <span className="text-gray-600">password</span>
-  </p>
-</div>
+            <p className="italic text-gray-400 mt-2">
+              Password: <span className="text-gray-600">password</span>
+            </p>
+          </div>
 
         </form>
       </div>
